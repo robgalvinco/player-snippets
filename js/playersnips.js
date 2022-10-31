@@ -1,3 +1,7 @@
+/* MAKE SURE TO COPY TO GLITCH
+https://glitch.com/edit/#!/assets-superpowerups?path=public%2Fplayersnips.js%3A27%3A3
+*/
+
 $( document ).ready(function() {
 
     
