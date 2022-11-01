@@ -17,11 +17,20 @@ $( document ).ready(function() {
            snipps_css.rel = "stylesheet";
            snipps_css.href = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets/css/text.css";
            f.parentNode.insertBefore(snipps_css, f);
-   }     
+   }    
+
+   const inject_js= function(){
+    var f = document.getElementsByTagName("script")[0],
+       j = document.createElement("script");
+       j.async = false;
+       j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets/js/player-confetti-cannon.js";
+       f.parentNode.insertBefore(j, f);
+}
     
     // Course player
     if(typeof(CoursePlayerV2) !== 'undefined') {
       inject_css();
+      inject_js();
     } else {
         // not course player
         
