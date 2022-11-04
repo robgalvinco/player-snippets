@@ -41,7 +41,8 @@ $( document ).ready(function() {
                       var colors = $(this).data("color");
                       var emojis = $(this).data("emojis");
                       var trigger = $(this).data("trigger");
-
+                      var confettiNumber = $(this).data("number");
+                      
                       var options = {};
                       if(typeof(colors)!="undefined"){
                             var is_predefined_color=false;
@@ -129,6 +130,13 @@ $( document ).ready(function() {
                                 if(!is_predefined_color){
                                     options.confettiColors = colors.split(" ")
                                 } 
+                                var confettiRadius = $(this).data("size");
+                                if(typeof(confettiRadius)!="undefined"){
+                                    options.confettiRadius = parseInt(confettiRadius);
+                                }
+                                if(typeof(confettiNumber)!="undefined"){
+                                    options.confettiNumber = parseInt(confettiNumber);
+                                }                                
                                 
                                 if(trigger=="lesson_start"){
                                     jsConfetti.addConfetti(options); 
@@ -154,11 +162,101 @@ $( document ).ready(function() {
                                 ]
                                 is_predefined_emoji=true;
                         }
+                        if(emojis=="xmas"){
+                            options.emojis= [
+                                "🎄","🎅","❄️","🎁"
+                                ]
+                                is_predefined_emoji=true;
+                        } 
+                        if(emojis=="pride"){
+                            options.emojis= [
+                                "🌈 "
+                                ]
+                                is_predefined_emoji=true;
+                        }                         
+                        if(emojis=="winter"){
+                            options.emojis= [
+                                "❄️","⛄️"
+                                ]
+                                is_predefined_emoji=true;
+                        } 
+                        if(emojis=="spring"){
+                            options.emojis= [
+                                "🌼","🌸","🌺"
+                                ]
+                                is_predefined_emoji=true;
+                        }     
+                        if(emojis=="summer"){
+                            options.emojis= [
+                                "🏖","😎", "☀️"
+                                ]
+                                is_predefined_emoji=true;
+                        } 
+                        if(emojis=="celebrate"){
+                            options.emojis= ["🎊","🎉","⏰"]
+                                is_predefined_emoji=true;
+                        }   
+                        if(emojis=="money"){
+                            options.emojis= ["💸","💰","💵","🤑"]
+                                is_predefined_emoji=true;
+                        }   
+                        if(emojis=="unicorns"){
+                            options.emojis= [ "🌈"," 🦄" ]
+                                is_predefined_emoji=true;
+                        }
+                        if(emojis=="highfives"){
+                            options.emojis= ["🙌","👏","👊"]
+                                is_predefined_emoji=true;
+                        }
+                        if(emojis=="highfivesdark"){
+                            options.emojis= ["👏🏾","🙌🏾","👊🏾"]
+                                is_predefined_emoji=true;
+                        } 
+                        if(emojis=="no-time-for-bs"){
+                            options.emojis= ["⏰","🐂","💩"]
+                                is_predefined_emoji=true;
+                        }      
+                        if(emojis=="gotime"){
+                            options.emojis= ["😎","🚀","🚨","🎯"]
+                                is_predefined_emoji=true;
+                        }    
+                        if(emojis=="tickettosuccess"){
+                            options.emojis= ["🎟","💰","🔓"]
+                                is_predefined_emoji=true;
+                        }
+                        if(emojis=="rockstar"){
+                            options.emojis= ["🎸","🗿","⭐️"]
+                                is_predefined_emoji=true;
+                        } 
+                        if(emojis=="luck"){
+                            options.emojis= ["🍀"]
+                                is_predefined_emoji=true;
+                        } 
+                        if(emojis=="stars"){
+                            options.emojis= ["💫","✨","🌜"]
+                                is_predefined_emoji=true;
+                        }     
+                        if(emojis=="inbox"){
+                            options.emojis=  ["📬","📨"]
+                                is_predefined_emoji=true;
+                        } 
+                        if(emojis=="calendar"){
+                            options.emojis=  ["📌","📝","📅"]
+                                is_predefined_emoji=true;
+                        }                                                                                                                                                                                                                                                                                                                                                                                                                                   
 
                         try {
                             if(!is_predefined_emoji){
                                 options.emojis = emojis.split(" ");          
                             } 
+                            var emojiSize = $(this).data("size");
+                            if(typeof(emojiSize)!="undefined"){
+                                options.emojiSize = parseInt(emojiSize);
+                            }
+                            if(typeof(confettiNumber)!="undefined"){
+                                options.confettiNumber = parseInt(confettiNumber);
+                            }                               
+
                             if(trigger=="lesson_start"){
                                 jsConfetti.addConfetti(options); 
                             }                              
