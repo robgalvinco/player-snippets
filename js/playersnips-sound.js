@@ -5,11 +5,50 @@ $( document ).ready(function() {
     if(typeof(CoursePlayerV2) !== 'undefined') {
           const playSound = function(sound){
             var url = sound;
+            if(sound=="FW01"){
+                url = "https://import.cdn.thinkific.com/164072/courses/2051563/25033multiexplodingfireworkoutsidefull-221104-074641.mp3";
+            }
+            if(sound=="FW02"){
+                url = "https://import.cdn.thinkific.com/164072/courses/2051563/FireworkA5-221104-074641.mp3";
+            }
+            if(sound=="AP01"){
+                url = "https://import.cdn.thinkific.com/164072/courses/2051563/00697applause14notstrong1-221104-075118.mp3";
+            }
+            if(sound=="AP02"){
+                url = "https://import.cdn.thinkific.com/164072/courses/2051563/large_applause-221104-074641.mp3";
+            }
+            if(sound=="AP03"){
+                url = "https://import.cdn.thinkific.com/164072/courses/2051563/19149bigaudienceovationfull-221104-074641.mp3";
+            }
+            if(sound=="AP04"){
+                url = "https://import.cdn.thinkific.com/164072/courses/2051563/SmallGroupApplause-221104-074641.mp3";
+            }
+            if(sound=="AP05"){
+                url = "https://import.cdn.thinkific.com/164072/courses/2051563/ApplauseCrowdAR01_10-221104-075118.mp3";
+            }
+            if(sound=="AP06"){
+                url = "https://import.cdn.thinkific.com/164072/courses/2051563/ApplauseCrowdAR01_102-221104-075118.mp3";
+            }
+            if(sound=="AP07"){
+                url = "https://import.cdn.thinkific.com/164072/courses/2051563/00697applause14notstrong-221104-075118.mp3";
+            }
+            if(sound=="AP08"){
+                url = "https://import.cdn.thinkific.com/164072/courses/2051563/ApplauseCrowdAR01_1021-221104-075118.mp3";
+            }
+            if(sound=="AP09"){
+                url = "https://import.cdn.thinkific.com/164072/courses/2051563/AnnouncerHowAboutANiceRoundOfApplause-221104-074641.mp3";
+            }
+            if(sound=="AP10"){
+                url = "https://import.cdn.thinkific.com/164072/courses/2051563/AnnouncerHowAboutANiceRoundOfApplause-221104-075118.mp3";
+            }
             var sound = new Howl({
                 src: [url]
             });
-            sound.play();
-
+            try {
+                sound.play();
+            } catch (error) {
+                console.log(error)
+            }
           }
         CoursePlayerV2.on('hooks:contentWasCompleted', function(data) {
             console.log("Content was completed",data);
