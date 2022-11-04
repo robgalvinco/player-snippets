@@ -44,23 +44,130 @@ $( document ).ready(function() {
 
                       var options = {};
                       if(typeof(colors)!="undefined"){
-                        var options_colors = {
-                        confettiColors:colors.split(" ")
-                        }    
-                        options.confettiColors = colors.split(" ");
-                        if(trigger=="lesson_start"){
-                            jsConfetti.addConfetti(options_colors); 
-                        }                    
+                            var is_predefined_color=false;
+
+                            if(colors=="fall"){
+                                options.confettiColors= [
+                                    '#44355b', '#31263e', '#221e22', '#eca72c', '#ee5622', '#ee5622',
+                                    ]
+                                    is_predefined_color=true;
+                            }
+                            if(colors=="halloween"){
+                                options.confettiColors= [
+                                    '#ff6d00', '#9d4edd', '#ff8500', '#5a189a', '#ff9e00', '#240046',
+                                ]
+                                is_predefined_color=true;
+                            }  
+                            if(colors=="xmas"){
+                                options.confettiColors= [
+                                    '#ba0c0c', '#27a300', '#ff0000', '#005c00', '#27a300', '#ba0c0c',
+                                ]
+                                is_predefined_color=true;
+                            }    
+                            if(colors=="gold"){
+                                options.confettiColors= [
+                                    '#76520e', '#926c15', '#c9a227', '#edc531', '#ffe169', '#edc531',
+                                ]
+                                is_predefined_color=true;
+                            }   
+                            if(colors=="silver"){
+                                options.confettiColors= [
+                                    '#343a40', '#495057', '#6c757d', '#adb5bd', '#ced4da', '#dee2e6',
+                                ]
+                                is_predefined_color=true;
+                            }   
+                            if(colors=="pride"){
+                                options.confettiColors= [
+                                    '#ff595e', '#ffca3a', '#8ac926', '#1982c4', '#6a4c93'
+                                ]
+                                is_predefined_color=true;
+                            } 
+                            if(colors=="winter"){
+                                options.confettiColors= [
+                                    '#03045e', '#023e8a', '#0077b6', '#0096c7', '#00b4d8','#48cae4','#90e0ef','#ade8f4','#caf0f8'
+                                ]
+                                is_predefined_color=true;
+                            }  
+                            if(colors=="spring"){
+                                options.confettiColors= [
+                                    '#d3f8e2', '#e4c1f9', '#f694c1', '#ede7b1', '#a9def9'
+                                ]
+                                is_predefined_color=true;
+                            }                                                                                                                                                                                                
+                            if(colors=="summer"){
+                                options.confettiColors= [
+                                    '#0081a7', '#00afb9', '#fdfcdc', '#fed9b7', '#f07167'
+                                ]
+                                is_predefined_color=true;
+                            }                                                                                                                                                                                                
+                            if(colors=="bright"){
+                                options.confettiColors= [
+                                    '#ffbe0b', '#fb5607', '#ff006e', '#8338ec', '#3a86ff'
+                                ]
+                                is_predefined_color=true;
+                            }                                                                                                                                                                                                
+                            if(colors=="muted"){
+                                options.confettiColors= [
+                                    '#ff99c8', '#fcf6bd', '#d0f4de', '#a9def9', '#e4c1f9'
+                                ]
+                                is_predefined_color=true;
+                            }                                                                                                                                                                                                
+                            if(colors=="explosion"){
+                                options.confettiColors= [
+                                    '#ff0000', '#ff8700', '#ffd300', '#deff0a', '#a1ff0a','#0aff99','#0aefff','#147df5','#580aff','#be0aff'
+                                ]
+                                is_predefined_color=true;
+                            }                                                                                                                                                                                                
+                            if(colors=="love"){
+                                options.confettiColors= [
+                                    '#ff0a54', '#ff477e','#ff5c8a', '#ff7096', '#ff85a1','#ff99ac','#fbb1bd','#f7cad0'
+                                ]
+                                is_predefined_color=true;
+                            }                                                                                                                                                                                                
+
+                            try {
+                                if(!is_predefined_color){
+                                    options.confettiColors = colors.split(" ")
+                                } 
+                                
+                                if(trigger=="lesson_start"){
+                                    jsConfetti.addConfetti(options); 
+                                }                    
+                                    
+                            } catch (error) {
+                                console.log("Error confetti colors",error)
+                            } 
                         
                       }
                       if(typeof(emojis)!="undefined"){
-                        var options_emojis = {
-                            emojis:emojis.split(" ")
-                            }    
-                        options.emojis = emojis.split(" ");   
-                        if(trigger=="lesson_start"){
-                            jsConfetti.addConfetti(options_emojis); 
-                        }                                                                       
+                        var is_predefined_emoji=false;
+
+                        if(emojis=="fall"){
+                            options.emojis= [
+                                '🦃','🍁','🎃'
+                                ]
+                                is_predefined_emoji=true;
+                        }
+                        if(emojis=="halloween"){
+                            options.emojis= [
+                                '👻','💀','🎃'
+                                ]
+                                is_predefined_emoji=true;
+                        }
+
+                        try {
+                            if(!is_predefined_emoji){
+                                options.emojis = emojis.split(" ");          
+                            } 
+                            if(trigger=="lesson_start"){
+                                jsConfetti.addConfetti(options); 
+                            }                              
+                        
+                        } catch (error) {
+                            console.log("Error confetti emojis",error)                                      
+                                
+                        }
+
                       }
                       if(trigger=="lesson_complete"){
                         var confetti_canon_options =     {
