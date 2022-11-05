@@ -45,6 +45,9 @@ $( document ).ready(function() {
       inject_confetijs();
       inject_bsjs();
       inject_sound();
+      CoursePlayerV2.on('hooks:contentDidChange', function(data) {
+
+      });
     } else {
         // not course player
         

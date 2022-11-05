@@ -102,5 +102,10 @@
     padding-left: 0px !important;
 }
 
+.take .fr-view .kapow-player img.fr-dii {
+    margin-left: 0px;
+    margin-right: 0px;
+    max-width: 100%;
+}
 
 
