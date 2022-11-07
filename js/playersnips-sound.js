@@ -5,6 +5,7 @@ $( document ).ready(function() {
     if(typeof(CoursePlayerV2) !== 'undefined') {
           const playSound = function(sound){
             var url = sound;
+            console.log("sounds "+sound);
             if(sound=="FW01"){
                 url = "https://import.cdn.thinkific.com/164072/courses/2051563/25033multiexplodingfireworkoutsidefull-221104-074641.mp3";
             }
@@ -41,11 +42,12 @@ $( document ).ready(function() {
             if(sound=="AP10"){
                 url = "https://import.cdn.thinkific.com/164072/courses/2051563/AnnouncerHowAboutANiceRoundOfApplause-221104-075118.mp3";
             }
-            var sound = new Howl({
+            console.log("playing:"+url);
+            var howler = new Howl({
                 src: [url]
             });
             try {
-                sound.play();
+                howler.play();
             } catch (error) {
                 console.log(error)
             }
