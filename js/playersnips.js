@@ -11,8 +11,8 @@ $( document ).ready(function() {
 
            var snipps_css = document.createElement("link");
            snipps_css.rel = "stylesheet";
-           //snipps_css.href = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets/css/text.css";
            snipps_css.href = "https://assets.superpowerups.com/playersnips.css";
+           snipps_css.href = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets/css/text.css";
            f.parentNode.insertBefore(snipps_css, f);
    }    
 
@@ -20,8 +20,8 @@ $( document ).ready(function() {
     var f = document.getElementsByTagName("script")[0],
        j = document.createElement("script");
        j.async = true;
-       //j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets/js/player-confetti-cannon.js";
        j.src = "https://assets.superpowerups.com/player-confetti-cannon.js";
+       j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets/js/player-confetti-cannon.js";
        f.parentNode.insertBefore(j, f);
     }
    const inject_bsjs= function(){
@@ -31,12 +31,50 @@ $( document ).ready(function() {
        j.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js";
        f.parentNode.insertBefore(j, f);
     }  
+    const inject_typeform= function(){
+        var f = document.getElementsByTagName("script")[0],
+           j = document.createElement("script");
+           j.async = true;
+           j.src = "https://embed.typeform.com/next/embed.js";
+           f.parentNode.insertBefore(j, f);
+           j2 = document.createElement("script");
+           j2.async = true;
+           j2.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets/js/playersnips-typeform.js";
+           f.parentNode.insertBefore(j2, f);
+           var _css_popup = document.createElement("link");
+        _css_popup.rel = "stylesheet";
+        _css_popup.href = "https://embed.typeform.com/next/css/popup.css";
+        f.parentNode.insertBefore(_css_popup, f);
+        var _css_slider = document.createElement("link");
+        _css_slider.rel = "stylesheet";
+        _css_slider.href = "https://embed.typeform.com/next/css/slider.css";
+        f.parentNode.insertBefore(_css_slider, f);
+        var _css_sidetab = document.createElement("link");
+        _css_sidetab.rel = "stylesheet";
+        _css_sidetab.href = "https://embed.typeform.com/next/css/sidetab.css";
+        f.parentNode.insertBefore(_css_sidetab, f);  
+        var _css_popover = document.createElement("link");
+        _css_popover.rel = "stylesheet";
+        _css_popover.href = "https://embed.typeform.com/next/css/popover.css";
+        f.parentNode.insertBefore(_css_popover, f);              
+    }  
+    const inject_lottie= function(){
+        var f = document.getElementsByTagName("script")[0],
+           j = document.createElement("script");
+           j.async = true;
+           j.src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+           f.parentNode.insertBefore(j, f);
+
+    }      
+
+    
    const inject_sound= function(){
     var f = document.getElementsByTagName("script")[0],
        j = document.createElement("script");
        j.async = true;
-       //j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@vlatest/js/playersnips-sound.js";
        j.src = "https://assets.superpowerups.com/playersnips-sounds.js";
+       j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets/js/playersnips-sound.js";
+
        f.parentNode.insertBefore(j, f);
     }    
     
@@ -46,6 +84,8 @@ $( document ).ready(function() {
       inject_confetijs();
       inject_bsjs();
       inject_sound();
+      inject_typeform();
+      inject_lottie();
       CoursePlayerV2.on('hooks:contentDidChange', function(data) {
 
       });
