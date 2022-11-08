@@ -21,8 +21,8 @@ $( document ).ready(function() {
             } else {
                 //open new typeform if not same
                 if(window._ps_tf_last.id !=ps_typeform.id){
-                    if(typeof(window._ps_tf_last.unmount())!="undefined"){
-                        window._ps_tf_last.unmount();
+                    if(typeof(window._ps_tf_last.tf)!="undefined" && typeof(window._ps_tf_last.tf.unmount())!="undefined"){
+                        window._ps_tf_last.tf.unmount();
                     }
                     if(ps_typeform.tf_type=="popup"){
                         window._ps_tf_last.tf.createPopup(ps_typeform.id)
