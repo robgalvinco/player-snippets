@@ -86,7 +86,7 @@ $( document ).ready(function() {
                         
                       } 
                       if(trigger=="lesson_start"){ 
-                        openTypeform(ps_typeform);
+                        openTypeform(ps_typeform_options);
                       }
                       
                       
