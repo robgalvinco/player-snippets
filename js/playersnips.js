@@ -64,7 +64,10 @@ $( document ).ready(function() {
            j.async = true;
            j.src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
            f.parentNode.insertBefore(j, f);
-
+           j2 = document.createElement("script");
+           j2.async = true;
+           j2.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets/js/playersnips-lottie.js";
+           f.parentNode.insertBefore(j2, f);
     }      
 
     
