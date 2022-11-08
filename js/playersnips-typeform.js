@@ -25,16 +25,16 @@ $( document ).ready(function() {
                         window._ps_tf_last.tf.unmount();
                     }
                     if(ps_typeform.tf_type=="popup"){
-                        window._ps_tf_last.tf.createPopup(ps_typeform.id)
+                        window._ps_tf_last.tf= window.tf.createPopup(ps_typeform.id)
                     }
                     if(ps_typeform.tf_type=="slider"){
-                        window._ps_tf_last.tf.createSlider(ps_typeform.id)
+                        window._ps_tf_last.tf= window.tf.createSlider(ps_typeform.id)
                     }
                     if(ps_typeform.tf_type=="sidetab"){
-                        window._ps_tf_last.tf.createSidetab(ps_typeform.id)
+                        window._ps_tf_last.tf= window.tf.createSidetab(ps_typeform.id)
                     }
                     if(ps_typeform.tf_type=="popover"){
-                        window._ps_tf_last.tf.createPopover(ps_typeform.id)
+                        window._ps_tf_last.tf= window.tf.createPopover(ps_typeform.id)
                     }    
                 }
                 window._ps_tf_last.id =ps_typeform.id;
