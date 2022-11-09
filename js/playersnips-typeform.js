@@ -2,6 +2,7 @@ $( document ).ready(function() {
 
     if(typeof(CoursePlayerV2) !== 'undefined') {
         const openTypeform = function(ps_typeform){
+            console.log("opening tf",ps_typeform)
             var tf_options = ps_typeform.tf_options;
             if(typeof(window._ps_tf_last)=="undefined"){
                 window._ps_tf_last = {
@@ -85,11 +86,14 @@ $( document ).ready(function() {
                         if(typeof($(this).data("tf-position"))!="undefined"){
                             tf_options.position = $(this).data("tf-position");
                         }
-                        if(typeof($(this).data("tf-buttonText"))!="undefined"){
-                            tf_options.buttonText = $(this).data("tf-buttonText");
+                        if(typeof($(this).data("tf-buttontext"))!="undefined"){
+                            tf_options.buttonText = $(this).data("tf-buttontext");
                         }  
-                        if(typeof($(this).data("tf-customIcon"))!="undefined"){
-                            tf_options.customIcon = $(this).data("tf-customIcon");
+                        if(typeof($(this).data("tf-buttoncolor"))!="undefined"){
+                            tf_options.buttonColor = $(this).data("tf-buttoncolor");
+                        }  
+                        if(typeof($(this).data("tf-customicon"))!="undefined"){
+                            tf_options.customIcon = $(this).data("tf-customicon");
                         }                                                
 
                         ps_typeform_options.tf_options = tf_options;                         

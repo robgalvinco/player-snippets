@@ -39,7 +39,7 @@ $( document ).ready(function() {
            f.parentNode.insertBefore(j, f);
            j2 = document.createElement("script");
            j2.async = true;
-           j2.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.0/js/playersnips-typeform.js";
+           j2.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.1/js/playersnips-typeform.js";
            f.parentNode.insertBefore(j2, f);
            var _css_popup = document.createElement("link");
         _css_popup.rel = "stylesheet";
