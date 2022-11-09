@@ -4,6 +4,7 @@ $( document ).ready(function() {
         const openTypeform = function(ps_typeform){
             console.log("opening tf",ps_typeform)
             var tf_options = ps_typeform.tf_options;
+            //console.log(tf_options)
             if(typeof(window._ps_tf_last)=="undefined"){
                 window._ps_tf_last = {
                     id: ps_typeform.id
