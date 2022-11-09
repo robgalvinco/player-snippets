@@ -92,6 +92,9 @@ $( document ).ready(function() {
                         if(typeof($(this).data("tf-buttoncolor"))!="undefined"){
                             tf_options.buttonColor = $(this).data("tf-buttoncolor");
                         }  
+                        if(typeof($(this).data("tf-tooltip"))!="undefined"){
+                            tf_options.tooltip = $(this).data("tf-tooltip");
+                        }                         
                         if(typeof($(this).data("tf-customicon"))!="undefined"){
                             tf_options.customIcon = $(this).data("tf-customicon");
                         }                                                
