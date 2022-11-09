@@ -2,21 +2,26 @@ $( document ).ready(function() {
 
     if(typeof(CoursePlayerV2) !== 'undefined') {
         const openTypeform = function(ps_typeform){
+            var tf_options = ps_typeform.tf_options;
             if(typeof(window._ps_tf_last)=="undefined"){
                 window._ps_tf_last = {
                     id: ps_typeform.id
                 }
                 if(ps_typeform.tf_type=="popup"){
-                    window._ps_tf_last.tf = window.tf.createPopup(ps_typeform.id)
+                    window._ps_tf_last.tf = window.tf.createPopup(ps_typeform.id,tf_options);
+                    window._ps_tf_last.tf.open();
                 }
                 if(ps_typeform.tf_type=="slider"){
-                    window._ps_tf_last.tf = window.tf.createSlider(ps_typeform.id)
+                    window._ps_tf_last.tf = window.tf.createSlider(ps_typeform.id,tf_options);
+                    window._ps_tf_last.tf.open();
                 }
                 if(ps_typeform.tf_type=="sidetab"){
-                    window._ps_tf_last.tf = window.tf.createSidetab(ps_typeform.id)
+                    window._ps_tf_last.tf = window.tf.createSidetab(ps_typeform.id,tf_options);
+                    window._ps_tf_last.tf.open();
                 }
                 if(ps_typeform.tf_type=="popover"){
-                    window._ps_tf_last.tf = window.tf.createPopover(ps_typeform.id)
+                    window._ps_tf_last.tf = window.tf.createPopover(ps_typeform.id,tf_options);
+                    window._ps_tf_last.tf.open();
                 }
             } else {
                 //open new typeform if not same
@@ -25,16 +30,20 @@ $( document ).ready(function() {
                         window._ps_tf_last.tf.unmount();
                     }
                     if(ps_typeform.tf_type=="popup"){
-                        window._ps_tf_last.tf= window.tf.createPopup(ps_typeform.id)
+                        window._ps_tf_last.tf= window.tf.createPopup(ps_typeform.id,tf_options);
+                        window._ps_tf_last.tf.open();
                     }
                     if(ps_typeform.tf_type=="slider"){
-                        window._ps_tf_last.tf= window.tf.createSlider(ps_typeform.id)
+                        window._ps_tf_last.tf= window.tf.createSlider(ps_typeform.id,tf_options);
+                        window._ps_tf_last.tf.open();
                     }
                     if(ps_typeform.tf_type=="sidetab"){
-                        window._ps_tf_last.tf= window.tf.createSidetab(ps_typeform.id)
+                        window._ps_tf_last.tf= window.tf.createSidetab(ps_typeform.id,tf_options);
+                        window._ps_tf_last.tf.open();
                     }
                     if(ps_typeform.tf_type=="popover"){
-                        window._ps_tf_last.tf= window.tf.createPopover(ps_typeform.id)
+                        window._ps_tf_last.tf= window.tf.createPopover(ps_typeform.id,tf_options);
+                        window._ps_tf_last.tf.open();
                     }    
                 }
                 window._ps_tf_last.id =ps_typeform.id;
@@ -58,15 +67,32 @@ $( document ).ready(function() {
             window.setTimeout(function(){
                if($(".take .ps-typeform").length>0){
                   $(".take .ps-typeform").each(function(){
-                      var id=$(this).data("id");
-                      var trigger = $(this).data("trigger");
-                      var tf_type = $(this).data("tf_type");
-                      var ps_typeform_options =     {
-                        "course_id":data.course.id,
-                        "lesson_id":data.lesson.id,
-                        "id":id,
-                        "tf_type":tf_type
-                        }   
+                        var id=$(this).data("id");
+                        var trigger = $(this).data("trigger");
+                        var tf_type = $(this).data("tf-type");
+                        var ps_typeform_options =     {
+                            "course_id":data.course.id,
+                            "lesson_id":data.lesson.id,
+                            "id":id,
+                            "tf_type":tf_type
+                            }  
+                        var tf_options = {}
+                        tf_options.hidden = {
+                            first_name: Thinkific.current_user.first_name,
+                            last_name: Thinkific.current_user.last_name,
+                            email: Thinkific.current_user.email
+                        } 
+                        if(typeof($(this).data("tf-position"))!="undefined"){
+                            tf_options.position = $(this).data("tf-position");
+                        }
+                        if(typeof($(this).data("tf-buttonText"))!="undefined"){
+                            tf_options.buttonText = $(this).data("tf-buttonText");
+                        }  
+                        if(typeof($(this).data("tf-customIcon"))!="undefined"){
+                            tf_options.customIcon = $(this).data("tf-customIcon");
+                        }                                                
+
+                        ps_typeform_options.tf_options = tf_options;                         
                       if(trigger=="lesson_complete"){
                         if(typeof(window.__playersnips_tf)!="undefined" ){
                             
