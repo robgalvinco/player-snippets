@@ -64,6 +64,8 @@ $( document ).ready(function() {
            j.async = true;
            j.src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
            f.parentNode.insertBefore(j, f);
+           
+           j1 = document.createElement("script");
            j1.async = true;
            j1.src = "https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js";
            f.parentNode.insertBefore(j1, f);
