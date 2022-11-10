@@ -39,7 +39,7 @@ $( document ).ready(function() {
            f.parentNode.insertBefore(j, f);
            j2 = document.createElement("script");
            j2.async = true;
-           j2.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.1/js/playersnips-typeform.js";
+           j2.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.3/js/playersnips-typeform.js";
            f.parentNode.insertBefore(j2, f);
            var _css_popup = document.createElement("link");
         _css_popup.rel = "stylesheet";
@@ -64,6 +64,10 @@ $( document ).ready(function() {
            j.async = true;
            j.src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
            f.parentNode.insertBefore(j, f);
+           j1.async = true;
+           j1.src = "https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js";
+           f.parentNode.insertBefore(j1, f);
+
            j2 = document.createElement("script");
            j2.async = true;
            j2.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.0/js/playersnips-lottie.js";
@@ -90,7 +94,16 @@ $( document ).ready(function() {
       inject_typeform();
       inject_lottie();
       CoursePlayerV2.on('hooks:contentDidChange', function(data) {
-
+        window.setTimeout(() => {
+            // PS-032 JS
+            console.log("ps-032");
+            $( '.ps-032 .flip-card' ).on( 'click', function () {
+                $( this ).toggleClass( 'active' );
+            } );
+        
+            $( '[data-bs-toggle="tooltip"]' ).tooltip();
+            
+        }, 500);          
       });
     } else {
         // not course player

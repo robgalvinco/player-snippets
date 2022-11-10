@@ -1,0 +1,115 @@
+<!-- PS-033 http://playersnips.superpowerups.com/-->
+<!-- How to Guide: https://docs-playersnips.superpowerups.com/the-snips/content-snips/ -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.ps-033 {
+  --color-1: #FF0089;
+  --white: #fff;
+  --black: #000;
+  --base: #313537;
+  --gray: #0000001a;
+}
+
+/*:root {
+  --font-family-serif: 'Merriweather', serif;
+}
+*/
+
+.ps-033 .timeline-cards {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.ps-033 .timeline-cards-item {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  background: var(--white);
+  position: relative;
+  padding-bottom: 69px;
+}
+.ps-033 .timeline-cards-item:last-of-type {
+  padding-bottom: 0;
+}
+.ps-033 .timeline-cards-item:last-of-type:after {
+  content: none;
+}
+.ps-033 .timeline-cards-item:after {
+  content: "";
+  width: 1px;
+  background: var(--gray);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 69px;
+}
+.ps-033 .timeline-cards-item .wrap {
+  padding-left: 48px;
+  padding-right: 48px;
+  padding-top: 56px;
+  padding-bottom: 48px;
+  box-shadow: 0 0.2rem 3rem var(--gray);
+  border-radius: 0.4rem;
+  position: relative;
+}
+@media (max-width: 767px) {
+  .ps-033 .timeline-cards-item .wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+ }
+}
+.ps-033 .timeline-cards-item .wrap:after {
+  content: "";
+  width: 4px;
+  background: var(--color-1);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  border-radius: 0.4rem 0 0 0.4rem;
+}
+.ps-033 .timeline-cards-item .wrap h2 {
+  font-size: 20px;
+  color: var(--color-1);
+  font-weight: 700;
+  /* font-family: var(--font-family-serif); */
+  font-style: italic;
+  margin-bottom: 17px;
+}
+.ps-033 .timeline-cards-item .wrap p {
+  /* font-family: var(--font-family-serif); */
+  font-size: 17px;
+  color: var(--base);
+  line-height: 32px;
+}    
+</style>
+
+<div class="kapow-player ps-033">
+    <div class="timeline-cards">
+        <div class="container">
+            <div class="timeline-cards-item">
+                <div class="wrap">
+                    <h2>Delivery</h2>
+                    <p>A vaccine delivers instructions to your cells to create a unique spike protein. This protein is associated with COVID-19 but is harmless to you in this form. Once these instructions are delivered, the delivery method is eliminated from your body.</p>
+                </div>
+            </div>
+            <div class="timeline-cards-item">
+                <div class="wrap">
+                    <h2>Teaching Your Immune System</h2>
+                    <p>Your immune system senses the foreign protein and kills it off. Through this process, your body learns how to detect SARS-CoV-2 and how to fight it.</p>
+                </div>
+            </div>
+            <div class="timeline-cards-item">
+                <div class="wrap">
+                    <h2>Sed ut perspiciatis unde</h2>
+                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PS-033-->     

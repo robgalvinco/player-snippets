@@ -118,7 +118,7 @@
   margin-bottom: 0;
 }
 .ps-032 .flip-cards .flip-card > div .wrap .btn {
-  background: url("assets/images/icons/flip-icon.svg") no-repeat center / contain;
+  background: url("https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.4/images/flip-icon.svg") no-repeat center / contain;
   padding: 0;
   width: 25px;
   height: 25px;
@@ -128,6 +128,7 @@
 }
 
 </style>
+
 <div class="kapow-player ps-032">
     <div class="flip-cards">
         <div class="container">
@@ -137,13 +138,13 @@
                         <div class="front">
                             <div class="wrap">
                                 <span>Air</span>
-                                <button type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></button>
+                                <div type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></div>
                             </div>
                         </div>
                         <div class="back">
                             <div class="wrap">
                                 <p>Breathing in <strong>air</strong> an infected person has exhaled that contains virus particles.&nbsp;</p>
-                                <button type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></button>
+                                <div type="div" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></div>
                             </div>
                         </div>
                     </div>
@@ -153,13 +154,13 @@
                         <div class="front">
                             <div class="wrap">
                                 <span>Droplets</span>
-                                <button type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></button>
+                                <div type="div" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></div>
                             </div>
                         </div>
                         <div class="back">
                             <div class="wrap">
                                 <p>Small <strong>droplets</strong> or particles with the virus land on the eyes, nose, or mouth.</p>
-                                <button type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></button>
+                                <div type="div" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></div>
                             </div>
                         </div>
                     </div>
@@ -169,13 +170,13 @@
                         <div class="front">
                             <div class="wrap">
                                 <span>Touch</span>
-                                <button type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></button>
+                                <div type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></div>
                             </div>
                         </div>
                         <div class="back">
                             <div class="wrap">
                                 <p>Virus-contaminated hands <strong>touching</strong> the eye, nose, or mouth.</p>
-                                <button type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></button>
+                                <div type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></div>
                             </div>
                         </div>
                     </div>
@@ -184,4 +185,14 @@
         </div>
     </div>
 </div>
+
+<script>
+$(document).ready(function(){
+    $( '.ps-032 .flip-card' ).on( 'click', function () {
+        $( this ).toggleClass( 'active' );
+    } )
+
+    $( '[data-bs-toggle="tooltip"]' ).tooltip();
+}); 
+</script>
 <!-- END PS-032-->     
