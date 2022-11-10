@@ -1,0 +1,187 @@
+<!-- PS-032 http://playersnips.superpowerups.com/-->
+<!-- How to Guide: https://docs-playersnips.superpowerups.com/the-snips/content-snips/ -->
+<style>
+/* @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap"); */
+.ps-032 .flip-cards  {
+  --red: #ef483e;
+  --white: #fff;
+  --black: #000;
+  --base: #313537;
+  --gray: #000 1a;
+  --gray-100: #ddd;
+  --gray-500: #fafafa;
+}
+.ps-032 .flip-cards  {
+  /* --font-family-serif: "Lato", sans-serif; */
+}
+
+.ps-032 .flip-cards {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.ps-032 .flip-cards .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.ps-032 .flip-cards .row > div {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 280px;
+}
+.ps-032 .flip-cards .flip-card {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 auto;
+  perspective: 1000px;
+  position: relative;
+  transform: scale(0.9) translateZ(0);
+  transition: transform 0.5s cubic-bezier(0.6, 0, 0.4, 1);
+  max-width: 100%;
+  width: 100%;
+  z-index: 0;
+  height: 100%;
+  min-height: 248px;
+}
+.ps-032 .flip-cards .flip-card.active {
+  transform: scale(1) translateZ(0);
+}
+.ps-032 .flip-cards .flip-card.active .front {
+  opacity: 0;
+  transform: rotateY(-180deg);
+  transition: transform 0.6s, left 0.45s, opacity 0.1s linear 0.1s, visibility 0.1s linear 0.1s;
+  z-index: 0;
+}
+.ps-032 .flip-cards .flip-card.active .back {
+  opacity: 1;
+  transform: rotateY(0deg);
+  transition: transform 0.6s, left 0.45s, opacity 0.1s linear 0ms, visibility 0.1s linear 0ms;
+  z-index: 1;
+}
+.ps-032 .flip-cards .flip-card > div {
+  backface-visibility: hidden;
+  border: 1px solid var(--gray-100);
+  box-shadow: var(--gray);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: rotateY(0deg);
+  width: 100%;
+  will-change: transform;
+}
+.ps-032 .flip-cards .flip-card > div:before {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: var(--red);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.ps-032 .flip-cards .flip-card > div.front {
+  background: var(--white);
+  opacity: 1;
+  transition: transform 0.6s, left 0.45s, opacity 0.1s linear 0ms, visibility 0.1s linear 0ms;
+  z-index: 1;
+}
+.ps-032 .flip-cards .flip-card > div.back {
+  background: var(--gray-500);
+  opacity: 0;
+  transform: rotateY(180deg);
+  transition: transform 0.6s, left 0.45s, opacity 0.1s linear 0.5s, visibility 0.1s linear 0.5s;
+  z-index: 0;
+}
+.ps-032 .flip-cards .flip-card > div .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  flex-direction: column;
+}
+.ps-032 .flip-cards .flip-card > div .wrap span {
+  font-size: 29px;
+  font-weight: 300;
+  /* font-family: var(--font-family-serif); */
+}
+.ps-032 .flip-cards .flip-card > div .wrap p {
+  font-size: 20px;
+  font-weight: 300;
+  /* font-family: var(--font-family-serif); */
+}
+.ps-032 .flip-cards .flip-card > div .wrap p strong {
+  font-weight: 700;
+}
+.ps-032 .flip-cards .flip-card > div .wrap p:last-child {
+  margin-bottom: 0;
+}
+.ps-032 .flip-cards .flip-card > div .wrap .btn {
+  background: url("assets/images/icons/flip-icon.svg") no-repeat center / contain;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+}
+
+</style>
+<div class="kapow-player ps-032">
+    <div class="flip-cards">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg">
+                    <div class="flip-card">
+                        <div class="front">
+                            <div class="wrap">
+                                <span>Air</span>
+                                <button type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></button>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="wrap">
+                                <p>Breathing in <strong>air</strong> an infected person has exhaled that contains virus particles.&nbsp;</p>
+                                <button type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg">
+                    <div class="flip-card">
+                        <div class="front">
+                            <div class="wrap">
+                                <span>Droplets</span>
+                                <button type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></button>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="wrap">
+                                <p>Small <strong>droplets</strong> or particles with the virus land on the eyes, nose, or mouth.</p>
+                                <button type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg">
+                    <div class="flip-card">
+                        <div class="front">
+                            <div class="wrap">
+                                <span>Touch</span>
+                                <button type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></button>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="wrap">
+                                <p>Virus-contaminated hands <strong>touching</strong> the eye, nose, or mouth.</p>
+                                <button type="button" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to flip"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PS-032-->     
