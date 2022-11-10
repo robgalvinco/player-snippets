@@ -24,6 +24,15 @@ $( document ).ready(function() {
        j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.0/js/player-confetti-cannon.js";
        f.parentNode.insertBefore(j, f);
     }
+    const inject_fap= function(){
+        
+        var f = document.getElementsByTagName("script")[0];
+            var playerbs_css = document.createElement("link");
+            playerbs_css.rel = "stylesheet";
+            playerbs_css.href = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@latest/fap/css/all.min.css";
+            f.parentNode.insertBefore(playerbs_css, f);
+           
+   }       
    const inject_bsjs= function(){
     var f = document.getElementsByTagName("script")[0],
        j = document.createElement("script");
@@ -93,10 +102,14 @@ $( document ).ready(function() {
       inject_confetijs();
       inject_bsjs();
       inject_sound();
+      inject_fap();
       inject_typeform();
       inject_lottie();
       CoursePlayerV2.on('hooks:contentDidChange', function(data) {
         window.setTimeout(() => {
+            // Fix FAP
+            $('i[class^="fa-"]').html("");
+                        
             // PS-032 JS
             console.log("ps-032");
             $( '.ps-032 .flip-card' ).on( 'click', function () {
