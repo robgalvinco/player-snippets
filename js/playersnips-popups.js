@@ -56,7 +56,7 @@ $( document ).ready(function() {
                 html+='            <div style="cursor:pointer;background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';" ';
                 html+='                class="p-4 shadow pill '+pill_width+' '+pill_shape+' d-flex justify-content-center">';
                 html+='             <span class="pe-2 pill-emoji" style="font-size: 28px;">'+ps_popup.emoji+'</span> ';
-                html +='            <span class="pill-text" style="font-size:18px;font-weight:700;>'+ps_popup.heading+'</span></div>';
+                html +='            <span class="pill-text" style="font-size:18px;font-weight:700;">'+ps_popup.heading+'</span></div>';
                 html+='        </div>';
                 html+='    </div>';
                 html+='</div>';
