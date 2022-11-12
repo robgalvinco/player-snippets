@@ -12,7 +12,7 @@ $( document ).ready(function() {
            var snipps_css = document.createElement("link");
            snipps_css.rel = "stylesheet";
            snipps_css.href = "https://assets.superpowerups.com/playersnips.css";
-           snipps_css.href = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.0/css/text.css";
+           snipps_css.href = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@vlatest/css/text.css";
            f.parentNode.insertBefore(snipps_css, f);
 
            var animate_css = document.createElement("link");
@@ -107,7 +107,7 @@ $( document ).ready(function() {
            j = document.createElement("script");
            j.async = true;
            j.src = "https://assets.superpowerups.com/playersnips-popups.js";
-           j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@vlatest/js/playersnips-popup.js";    
+           j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@vlatest/js/playersnips-popups.js";    
            f.parentNode.insertBefore(j, f);
             
     }  
