@@ -14,7 +14,13 @@ $( document ).ready(function() {
            snipps_css.href = "https://assets.superpowerups.com/playersnips.css";
            snipps_css.href = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.0/css/text.css";
            f.parentNode.insertBefore(snipps_css, f);
-   }    
+
+           var animate_css = document.createElement("link");
+           animate_css.rel = "stylesheet";
+           animate_css.href = "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css";
+           f.parentNode.insertBefore(animate_css, f);
+
+        }    
 
    const inject_confetijs= function(){
     var f = document.getElementsByTagName("script")[0],
@@ -96,12 +102,23 @@ $( document ).ready(function() {
        f.parentNode.insertBefore(j, f);
     }    
     
+    const inject_pspops= function(){
+        var f = document.getElementsByTagName("script")[0],
+           j = document.createElement("script");
+           j.async = true;
+           j.src = "https://assets.superpowerups.com/playersnips-popups.js";
+           j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@vlatest/js/playersnips-popup.js";    
+           f.parentNode.insertBefore(j, f);
+            
+    }  
+
     // Course player
     if(typeof(CoursePlayerV2) !== 'undefined') {
       inject_css();
       inject_confetijs();
       inject_bsjs();
       inject_sound();
+      inject_pspops();
       inject_fap();
       inject_typeform();
       inject_lottie();
@@ -109,7 +126,7 @@ $( document ).ready(function() {
         window.setTimeout(() => {
             // Fix FAP
             $('i[class^="fa-"]').html("");
-                        
+
             // PS-032 JS
             console.log("ps-032");
             $( '.ps-032 .flip-card' ).on( 'click', function () {

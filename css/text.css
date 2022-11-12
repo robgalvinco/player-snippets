@@ -353,6 +353,32 @@
     }
 }
 
+#ps-container-top-full{
+    position:fixed;z-index:9999;width:100%;top:0px;
+}
+#ps-container-top{
+    position:fixed;z-index:9999;width:100%;top:4%;
+}
+#ps-container-top-left{
+    position:fixed;z-index:9999;top:4%;left:1%;
+}
+#ps-container-top-right{
+    position:fixed;z-index:9999;top:4%;right:2%;
+}
+#ps-container-bottom-full{
+    position:fixed;z-index:9999;width:100%;bottom:0px;
+}
+
+#ps-container-bottom{
+    position:fixed;z-index:9999;width:100%;bottom:4%;
+}
+#ps-container-bottom-left{
+    position:fixed;z-index:9999;bottom:4%;left:1%;
+}
+#ps-container-bottom-right{
+    position:fixed;z-index:9999;bottom:4%;right:2%;
+}
+
 
 
 
