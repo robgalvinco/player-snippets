@@ -47,16 +47,16 @@ $( document ).ready(function() {
 
             
             var html="";
-            if(ps_popup.pu_type=="emoji_pill"){
+            if(ps_popup.pu_type=="emoji_bar"){
                 html+='<div class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
                 html+='    <div class="pb-2">';
                 html+='        <div class="';
                 html+='                    animate__animated '+animate_css;
                 html+='                    w-100 d-flex justify-content-center">';
                 html+='            <div style="cursor:pointer;background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';" ';
-                html+='                class="p-4 pill '+pill_width+' '+pill_shape+' d-flex justify-content-center">';
-                html+='             <span class="pe-2 pill-emoji">'+ps_popup.emoji+'</span> ';
-                html +='            <span class="pill-text">'+ps_popup.heading+'</span></div>';
+                html+='                class="p-4 shadow pill '+pill_width+' '+pill_shape+' d-flex justify-content-center">';
+                html+='             <span class="pe-2 pill-emoji" style="font-size: 28px;">'+ps_popup.emoji+'</span> ';
+                html +='            <span class="pill-text" style="font-size:18px;font-weight:700;>'+ps_popup.heading+'</span></div>';
                 html+='        </div>';
                 html+='    </div>';
                 html+='</div>';
