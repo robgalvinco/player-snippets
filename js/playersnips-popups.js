@@ -279,7 +279,7 @@ $( document ).ready(function() {
                             var id='.kapow-popup-'+ps_popup.lesson_id+' .animate__animated';
                             // console.log("closing",id);
                             $(id).addClass("animate__fadeOut");
-                            $(id).html("");
+                            //$(id).html("");
                         }, ps_popup.autoclose*1000);
                     }
                     
@@ -295,18 +295,18 @@ $( document ).ready(function() {
                     }else {
                         if(ps_popup.pu_type=="loom_card"){
                             $('.kapow-popup-'+ps_popup.lesson_id+' .btn-close-pspop').click(function(){
-                                var id='.kapow-popup-'+ps_popup.lesson_id+' .animate__animated';
+                                var id='.kapow-popup-'+ps_popup.lesson_id;
                                 // console.log("closing",id);
-                                $(id).addClass("animate__fadeOut");
-                                $(id).html("");
+                                $(id+' .animate__animated').addClass("animate__fadeOut");
+                                //$(id).html("");
                             })                            
 
                         } else {
                             $('.kapow-popup-'+ps_popup.lesson_id).click(function(){
-                                var id='.kapow-popup-'+ps_popup.lesson_id+' .animate__animated';
+                                var id='.kapow-popup-'+ps_popup.lesson_id;
                                 // console.log("closing",id);
-                                $(id).addClass("animate__fadeOut");
-                                $(id).html("");
+                                $(id+' .animate__animated').addClass("animate__fadeOut");
+                                //$(id).html("");
                             })                            
                         }
 
