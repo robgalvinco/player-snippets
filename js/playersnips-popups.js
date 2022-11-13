@@ -3,6 +3,13 @@
 $( document ).ready(function() {
 
     if(typeof(CoursePlayerV2) !== 'undefined') {
+        const removePopup = function(id){
+            $(id).addClass("animate__fadeOut");
+            window.setTimeout(() => {
+                $(id).remove();
+            }, 1500);
+
+        }
         const openPopup = function(ps_popup){
             //console.log(ps_popup);
             var animate_css = "animate__fadeIn";
@@ -277,9 +284,7 @@ $( document ).ready(function() {
                         console.log("has autoclose",ps_popup.autoclose)
                         window.setTimeout(() => {
                             var id='.kapow-popup-'+ps_popup.lesson_id+' .animate__animated';
-                            // console.log("closing",id);
-                            $(id).addClass("animate__fadeOut");
-                            //$(id).html("");
+                            removePopup(id);
                         }, ps_popup.autoclose*1000);
                     }
                     
@@ -296,17 +301,13 @@ $( document ).ready(function() {
                         if(ps_popup.pu_type=="loom_card"){
                             $('.kapow-popup-'+ps_popup.lesson_id+' .btn-close-pspop').click(function(){
                                 var id='.kapow-popup-'+ps_popup.lesson_id;
-                                // console.log("closing",id);
-                                $(id+' .animate__animated').addClass("animate__fadeOut");
-                                //$(id).html("");
+                                removePopup(id);
                             })                            
 
                         } else {
                             $('.kapow-popup-'+ps_popup.lesson_id).click(function(){
                                 var id='.kapow-popup-'+ps_popup.lesson_id;
-                                // console.log("closing",id);
-                                $(id+' .animate__animated').addClass("animate__fadeOut");
-                                //$(id).html("");
+                                removePopup(id);                                
                             })                            
                         }
 
@@ -323,9 +324,7 @@ $( document ).ready(function() {
                         console.log("has autoclose",ps_popup.autoclose)
                         window.setTimeout(() => {
                             var id='.kapow-popup-'+ps_popup.lesson_id+' .animate__animated';
-                            // console.log("closing",id);
-                            $(id).addClass("animate__fadeOut");
-                            //$(id).html("");
+                            removePopup(id);
                         }, ps_popup.autoclose*1000);
                     }                       
                 }
