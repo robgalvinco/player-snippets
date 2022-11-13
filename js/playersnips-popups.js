@@ -4,7 +4,7 @@ $( document ).ready(function() {
 
     if(typeof(CoursePlayerV2) !== 'undefined') {
         const openPopup = function(ps_popup){
-            console.log(ps_popup);
+            //console.log(ps_popup);
             var animate_css = "animate__fadeIn";
             var pill_width = " ";
             var pill_shape = ps_popup.shape;
