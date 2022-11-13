@@ -296,7 +296,8 @@ $( document ).ready(function() {
 
                     $('.kapow-popup-'+ps_popup.lesson_id+' .btn-close-pspop').click(function(){
                         var id='.kapow-popup-'+ps_popup.lesson_id;
-                        removePopup(id);
+                        $(id).remove();
+                        
                     })                            
             
                     if(ps_popup.cta!=""){
