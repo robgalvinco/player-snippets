@@ -319,6 +319,15 @@ $( document ).ready(function() {
                     var id='.kapow-popup-'+ps_popup.lesson_id;
                     // console.log("closing",id);
                     $(id+' .animate__animated').removeClass("animate__fadeOut");
+                    if(ps_popup.autoclose!=0){
+                        console.log("has autoclose",ps_popup.autoclose)
+                        window.setTimeout(() => {
+                            var id='.kapow-popup-'+ps_popup.lesson_id+' .animate__animated';
+                            // console.log("closing",id);
+                            $(id).addClass("animate__fadeOut");
+                            //$(id).html("");
+                        }, ps_popup.autoclose*1000);
+                    }                       
                 }
             }
         }
