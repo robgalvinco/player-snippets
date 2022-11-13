@@ -1,8 +1,8 @@
-<!-- PU-002 http://playersnips.superpowerups.com/-->
-<!-- READ THE GUIDE FIRST -->
-<!-- How to Guide: https://docs-playersnips.superpowerups.com/the-snips/popup-snips/emoji-bar -->
-
-<!-- 
+<div class="fr-view">
+	<!-- PU-006 http://playersnips.superpowerups.com/-->
+	<!-- READ THE GUIDE FIRST -->
+	<!-- How to Guide: https://docs-playersnips.superpowerups.com/the-snips/popup-snips/loom-card -->
+	<!-- 
     Snippet Options
     data-trigger (choose one): lesson_start lesson_complete
     data-color-bg : This is hex color of the background. Default: #e9e9fd
@@ -12,9 +12,11 @@
     data-position (choose one); top, top-full, top-left, top-right, bottom, bottom-full, bottom-left, bottom-right
     data-shape: (choose one): rounded, rounded-pill, square
     data-cta: link for popup (remove if not used)
+    data-cta-text: text for button (remove if not used)
     data-cta-target (choose one): new, same
-    data-emoji: emoji to use
-    data-heading: text next to emoji - do not use any quotes
+    data-image-url: a url to an image 200x200
+    data-heading: text under image - do not use any quotes
+    data-subheading: text under heading - do not use any quotes    
     data-sound: Choose one of the predefined sounds or provide your own 
         Sounds: doink, swoosh, blink, dadun, dingdong, deenaa, tada,  
                 fairy, soda, cool, bongo, 
@@ -23,22 +25,22 @@
 
     
 -->
-<div class="ps-popup" 
+<div class="ps-popup"  
     data-trigger="lesson_start"
-    data-color-bg="#e9e9fd"
-    data-color-text="#333333"
-    data-delay="0"
-    data-autoclose="6" 
-    data-position="top" 
-    data-shape="rounded-pill"
-    data-cta="" 
-    data-cta-target="new" 
-
-    data-emoji="🚢" 
-    data-heading="{name}, You are cruising now! Keep up the good work!" 
-    data-sound="fairy"
-    data-pu-type="emoji_bar" 
-    
-    >&nbsp;</div>
-
-<!-- END PU-002-->
+    data-color-bg="#fcdca3" 
+    data-color-text="#333333" 
+    data-delay="0" 
+    data-autoclose="10" 
+    data-position="top-left" 
+    data-shape="rounded" 
+    data-cta=""
+    data-cta-text=""
+    data-cta-target=""
+    data-lottie-url="https://assets3.lottiefiles.com/packages/lf20_uletvhke.json"
+    data-heading="{name},You are on fire! Don't stop now!" 
+    data-subheading=""
+    data-alignment="center"
+    data-sound="cool" 
+    data-pu-type="animation_card" 
+        >&nbsp;</div>
+<!-- END PU-006-->
