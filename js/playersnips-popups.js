@@ -4,6 +4,7 @@ $( document ).ready(function() {
 
     if(typeof(CoursePlayerV2) !== 'undefined') {
         const openPopup = function(ps_popup){
+            console.log(ps_popup);
             var animate_css = "animate__fadeIn";
             var pill_width = " ";
             var pill_shape = ps_popup.shape;
@@ -47,6 +48,13 @@ $( document ).ready(function() {
 
             
             var html="";
+            const search = '{name}';
+            const replaceWith = Thinkific.current_user.first_name;
+            const new_heading = ps_popup.heading.split(search).join(replaceWith);  
+            ps_popup.heading = new_heading;   
+            const new_subheading = ps_popup.subheading.split(search).join(replaceWith);  
+            ps_popup.subheading = new_subheading;   
+            
             if(ps_popup.pu_type=="emoji_bar"){
                 html+='<div class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
                 html+='    <div class="pb-2">';
@@ -61,6 +69,145 @@ $( document ).ready(function() {
                 html+='    </div>';
                 html+='</div>';
             }
+            if(ps_popup.pu_type=="avatar_bar"){
+                html+='<div class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
+                html+='    <div class="pb-2">';
+                html+='        <div class="';
+                html+='                    animate__animated '+animate_css;
+                html+='                    w-100 d-flex justify-content-center">';
+                html+='            <div style="cursor:pointer;background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';" ';
+                html+='                class="p-3 shadow pill '+pill_width+' '+pill_shape+' d-flex align-items-center justify-content-center">';
+                html+='             <img class="rounded-circle" style="max-height: 68px;" src="'+ps_popup.image_url+'"> ';
+                html +='            <span class="ps-2 pill-text" style="font-size:18px;font-weight:700;">'+ps_popup.heading+'</span></div>';
+                html+='        </div>';
+                html+='    </div>';
+                html+='</div>';
+            }
+            if(ps_popup.pu_type=="animation_bar"){
+                var lotti_json=ps_popup.lottie_url;
+                var lottie_html = '<lottie-player id="ps-lottie" src="'+lotti_json+'"  background="transparent"  speed="1"   style="max-height: 68px;max-width: 68px;"  loop autoplay></lottie-player>';
+
+                html+='<div class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
+                html+='    <div class="pb-2">';
+                html+='        <div class="';
+                html+='                    animate__animated '+animate_css;
+                html+='                    w-100 d-flex justify-content-center">';
+                html+='            <div style="cursor:pointer;background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';" ';
+                html+='                class="p-3 shadow pill '+pill_width+' '+pill_shape+' d-flex align-items-center justify-content-center">';
+                html+=lottie_html;
+                html +='            <span class="ps-2 pill-text" style="font-size:18px;font-weight:700;">'+ps_popup.heading+'</span></div>';
+                html+='        </div>';
+                html+='    </div>';
+                html+='</div>';
+            }            
+            if(ps_popup.pu_type=="image_card"){
+                if(pill_shape=="rounded-pill"){
+                    pill_shape="rounded";
+                }
+                html += '<style> ';
+                html += '.kapow-popup-'+ps_popup.lesson_id+'{';
+                html += 'width:18rem;'
+                html += '}';
+                html += '</style>'
+
+                html+='<div class="fr-view"><div data-theme="light" class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
+                html+=' <div class="card shadow  '+pill_shape+'  text-'+ps_popup.alignment
+                html+='                    animate__animated '+animate_css;
+                html+='"     style="cursor:pointer;background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';"> ';
+                if(ps_popup.image_url!=""){
+                    html+='     <img src="'+ps_popup.image_url+'" class="card-img-top">';
+                }
+                if(ps_popup.heading!=""||ps_popup.subheading!=""||ps_popup.cta!=""){
+                    html+='     <div class="card-body d-flex flex-column">';
+                    if(ps_popup.heading!=""){
+                        html+='     <p class="card-title fw-bold">'+ps_popup.heading+' </p>';
+                    }
+                    if(ps_popup.subheading!=""){
+                        html+='     <p class="card-text mb-4">'+ps_popup.subheading+'</p>';
+                    }
+                    if(ps_popup.cta!="" && ps_popup.cta_text!=""){
+                        html+='     <a href="'+ps_popup.cta+'" target="'+ps_popup.cta_target+'" class="button brand-color__background brand-color__dynamic-text mt-auto align-self-start">'+ps_popup.cta_text+'</a>';
+                    }
+                    html+='     </div>';
+                }
+                html+=' </div>'; 
+                html+='</div></div>';            
+            }
+            if(ps_popup.pu_type=="animation_card"){
+                var lotti_json=ps_popup.lottie_url;
+                var lottie_html = '<lottie-player id="ps-lottie" src="'+lotti_json+'"  background="transparent"  speed="1"   style="width:100%"  loop autoplay></lottie-player>';
+
+                if(pill_shape=="rounded-pill"){
+                    pill_shape="rounded";
+                }
+                html += '<style> ';
+                html += '.kapow-popup-'+ps_popup.lesson_id+'{';
+                html += 'width:18rem;'
+                html += '}';
+                html += '</style>'
+
+                html+='<div class="fr-view"><div data-theme="light" class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
+                html+=' <div class="card shadow  '+pill_shape+'  text-'+ps_popup.alignment;
+                html+='                    animate__animated '+animate_css;
+                html+='"     style="cursor:pointer;background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';"> ';
+                
+                html+='     <div class="card-body d-flex flex-column">';
+                html+= lottie_html;
+                if(ps_popup.heading!=""){
+                    html+='     <p class="card-title fw-bold">'+ps_popup.heading+' </p>';
+                }
+                if(ps_popup.subheading!=""){
+                    html+='     <p class="card-text mb-4">'+ps_popup.subheading+'</p>';
+                }
+                if(ps_popup.cta!="" && ps_popup.cta_text!=""){
+                    html+='     <a href="'+ps_popup.cta+'" target="'+ps_popup.cta_target+'" class="button brand-color__background brand-color__dynamic-text mt-auto align-self-start">'+ps_popup.cta_text+'</a>';
+                }
+                html+='     </div>';
+                
+                html+=' </div>'; 
+                html+='</div></div>';            
+            }
+
+            if(ps_popup.pu_type=="loom_card"){
+                var loomid=ps_popup.loomid;
+                var loomurl="https://www.loom.com/embed/"+loomid+"?hideEmbedTopBar=true&autoplay=true&mute=false"
+                var loomhtml='<div  style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="'+loomurl+'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>';                
+                
+                //var loomhtml='<div class="ratio ratio-16x9"><iframe src="'+loomurl+'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen ></iframe></div>'
+
+                if(pill_shape=="rounded-pill"){
+                    pill_shape="rounded";
+                }
+                html += '<style> ';
+                html += '.kapow-popup-'+ps_popup.lesson_id+'{';
+                html += 'width:28rem;'
+                html += '}';
+                html += '</style>'
+
+                html+='<div class="fr-view"><div data-theme="light" class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
+                html+=' <div class="card shadow  '+pill_shape+'  text-'+ps_popup.alignment;
+                html+='                    animate__animated '+animate_css;
+                html+='"     style="background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';"> ';
+                
+                html+='     <div class="card-body  d-flex flex-column">';
+                html+= loomhtml;
+                if(ps_popup.heading!=""){
+                    html+='     <p class="pt-2 card-title fw-bold">'+ps_popup.heading+' </p>';
+                }
+                if(ps_popup.subheading!=""){
+                    html+='     <p class="card-text mb-4">'+ps_popup.subheading+'</p>';
+                }
+                if(ps_popup.cta!="" && ps_popup.cta_text!=""){
+                    html+='     <a href="'+ps_popup.cta+'" target="'+ps_popup.cta_target+'" class="button brand-color__background brand-color__dynamic-text mt-auto align-self-start">'+ps_popup.cta_text+'</a>';
+                }
+                html+='<i class="btn-close-pspop brand-color__text fa-solid fa-2x fa-circle-xmark" style="cursor:pointer;position:absolute;top:10px;right:10px;"></i>'
+
+                html+='     </div>';
+                
+                html+=' </div>'; 
+                html+='</div></div>';            
+            }            
+
             if(html!="" && $(".kapow-popup-"+ps_popup.lesson_id).length==0){
                 window.setTimeout(() => {
                     if(ps_popup.sound!=""){
@@ -135,8 +282,8 @@ $( document ).ready(function() {
                             $(id).html("");
                         }, ps_popup.autoclose*1000);
                     }
-
-                    if(ps_popup.cta!=""){
+                    
+                    if(ps_popup.cta!="" && ps_popup.pu_type!="loom_card"){
                         $('.kapow-popup-'+ps_popup.lesson_id).click(function(){
                             if(ps_popup.cta_target=="new"){
                                 window.open(ps_popup.cta);
@@ -146,12 +293,23 @@ $( document ).ready(function() {
                         })
 
                     }else {
-                        $('.kapow-popup-'+ps_popup.lesson_id).click(function(){
-                            var id='.kapow-popup-'+ps_popup.lesson_id+' .animate__animated';
-                            // console.log("closing",id);
-                            $(id).addClass("animate__fadeOut");
-                            $(id).html("");
-                        })
+                        if(ps_popup.pu_type=="loom_card"){
+                            $('.kapow-popup-'+ps_popup.lesson_id+' .btn-close-pspop').click(function(){
+                                var id='.kapow-popup-'+ps_popup.lesson_id+' .animate__animated';
+                                // console.log("closing",id);
+                                $(id).addClass("animate__fadeOut");
+                                $(id).html("");
+                            })                            
+
+                        } else {
+                            $('.kapow-popup-'+ps_popup.lesson_id).click(function(){
+                                var id='.kapow-popup-'+ps_popup.lesson_id+' .animate__animated';
+                                // console.log("closing",id);
+                                $(id).addClass("animate__fadeOut");
+                                $(id).html("");
+                            })                            
+                        }
+
                     }
     
 
@@ -226,6 +384,12 @@ $( document ).ready(function() {
                         }  else {
                             ps_popup_options.cta ="";
                         }    
+                        if(typeof($(this).data("cta-text"))!="undefined"){
+                            ps_popup_options.cta_text = $(this).data("cta-text");
+                        }  else {
+                            ps_popup_options.cta_text ="";
+                        }    
+
                         if(typeof($(this).data("cta-target"))!="undefined"){
                             ps_popup_options.cta_target = $(this).data("cta-target");
                         }  else {
@@ -236,11 +400,21 @@ $( document ).ready(function() {
                         }  else {
                             ps_popup_options.emoji ="";
                         }    
-                        if(typeof($(this).data("image_url"))!="undefined"){
+                        if(typeof($(this).data("loomid"))!="undefined"){
+                            ps_popup_options.loomid = $(this).data("loomid");
+                        }  else {
+                            ps_popup_options.loomid ="";
+                        }                         
+                        if(typeof($(this).data("image-url"))!="undefined"){
                             ps_popup_options.image_url = $(this).data("image-url");
                         }  else {
                             ps_popup_options.image_url ="";
                         }   
+                        if(typeof($(this).data("lottie-url"))!="undefined"){
+                            ps_popup_options.lottie_url = $(this).data("lottie-url");
+                        }  else {
+                            ps_popup_options.lottie_url ="";
+                        }                         
                         if(typeof($(this).data("heading"))!="undefined"){
                             ps_popup_options.heading = $(this).data("heading");
                         }  else {
@@ -251,6 +425,12 @@ $( document ).ready(function() {
                         }  else {
                             ps_popup_options.subheading ="";
                         }  
+                        if(typeof($(this).data("alignment"))!="undefined"){
+                            ps_popup_options.alignment = $(this).data("alignment");
+                        }  else {
+                            ps_popup_options.alignment ="left";
+                        }  
+
                         if(typeof($(this).data("sound"))!="undefined"){
                             ps_popup_options.sound = $(this).data("sound");
                         }  else {
