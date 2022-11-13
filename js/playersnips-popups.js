@@ -314,6 +314,12 @@ $( document ).ready(function() {
     
 
                 }, ps_popup.delay*1000);
+            } else {
+                if( $(".kapow-popup-"+ps_popup.lesson_id).length>0){
+                    var id='.kapow-popup-'+ps_popup.lesson_id;
+                    // console.log("closing",id);
+                    $(id+' .animate__animated').removeClass("animate__fadeOut");
+                }
             }
         }
         CoursePlayerV2.on('hooks:contentWasCompleted', function(data) {
