@@ -120,7 +120,7 @@ $( document ).ready(function() {
                 html+='<div class="fr-view"><div data-theme="light" class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
                 html+=' <div class="card shadow  '+pill_shape+'  text-'+ps_popup.alignment
                 html+='                    animate__animated '+animate_css;
-                html+='"     style="cursor:pointer;background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';"> ';
+                html+='"     style="background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';"> ';
                 if(ps_popup.image_url!=""){
                     html+='     <img src="'+ps_popup.image_url+'" class="card-img-top">';
                 }
@@ -137,6 +137,8 @@ $( document ).ready(function() {
                     }
                     html+='     </div>';
                 }
+                html+='<i class="btn-close-pspop brand-color__text fa-solid  fa-circle-xmark" style="cursor:pointer;position:absolute;top:10px;right:10px;"></i>'
+
                 html+=' </div>'; 
                 html+='</div></div>';            
             }
@@ -170,6 +172,7 @@ $( document ).ready(function() {
                     html+='     <a href="'+ps_popup.cta+'" target="'+ps_popup.cta_target+'" class="button brand-color__background brand-color__dynamic-text mt-auto align-self-start">'+ps_popup.cta_text+'</a>';
                 }
                 html+='     </div>';
+                html+='<i class="btn-close-pspop brand-color__text fa-solid  fa-circle-xmark" style="cursor:pointer;position:absolute;top:10px;right:10px;"></i>'
                 
                 html+=' </div>'; 
                 html+='</div></div>';            
