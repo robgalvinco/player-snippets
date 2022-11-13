@@ -53,7 +53,10 @@ $( document ).ready(function() {
                 animate_css = "animate__fadeInRightBig"
             }            
 
-            
+            var pop_action = "btn-close-pspop";
+            if(ps_popup.cta!=""){
+                pop_action="btn-cta-pspop"
+            }
             var html="";
             const search = '{name}';
             const replaceWith = Thinkific.current_user.first_name;
@@ -65,7 +68,7 @@ $( document ).ready(function() {
             if(ps_popup.pu_type=="emoji_bar"){
                 html+='<div class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
                 html+='    <div class="pb-2">';
-                html+='        <div class="';
+                html+='        <div class="'+pop_action;
                 html+='                    animate__animated '+animate_css;
                 html+='                    w-100 d-flex justify-content-center">';
                 html+='            <div style="cursor:pointer;background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';" ';
@@ -79,7 +82,7 @@ $( document ).ready(function() {
             if(ps_popup.pu_type=="avatar_bar"){
                 html+='<div class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
                 html+='    <div class="pb-2">';
-                html+='        <div class="';
+                html+='        <div class="'+pop_action;
                 html+='                    animate__animated '+animate_css;
                 html+='                    w-100 d-flex justify-content-center">';
                 html+='            <div style="cursor:pointer;background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';" ';
@@ -96,7 +99,7 @@ $( document ).ready(function() {
 
                 html+='<div class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
                 html+='    <div class="pb-2">';
-                html+='        <div class="';
+                html+='        <div class="'+pop_action;
                 html+='                    animate__animated '+animate_css;
                 html+='                    w-100 d-flex justify-content-center">';
                 html+='            <div style="cursor:pointer;background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';" ';
@@ -290,29 +293,20 @@ $( document ).ready(function() {
                             removePopup(id);
                         }, ps_popup.autoclose*1000);
                     }
-                    
-                    if(ps_popup.cta!="" && ps_popup.pu_type!="loom_card"){
-                        $('.kapow-popup-'+ps_popup.lesson_id).click(function(){
+
+                    $('.kapow-popup-'+ps_popup.lesson_id+' .btn-close-pspop').click(function(){
+                        var id='.kapow-popup-'+ps_popup.lesson_id;
+                        removePopup(id);
+                    })                            
+            
+                    if(ps_popup.cta!=""){
+                        $('.kapow-popup-'+ps_popup.lesson_id+' .btn-cta-pspop').click(function(){
                             if(ps_popup.cta_target=="new"){
                                 window.open(ps_popup.cta);
                             } else {
                                 window.location=ps_popup.cta;
                             }
                         })
-
-                    }else {
-                        if(ps_popup.pu_type=="loom_card"){
-                            $('.kapow-popup-'+ps_popup.lesson_id+' .btn-close-pspop').click(function(){
-                                var id='.kapow-popup-'+ps_popup.lesson_id;
-                                removePopup(id);
-                            })                            
-
-                        } else {
-                            $('.kapow-popup-'+ps_popup.lesson_id).click(function(){
-                                var id='.kapow-popup-'+ps_popup.lesson_id;
-                                removePopup(id);                                
-                            })                            
-                        }
 
                     }
     
