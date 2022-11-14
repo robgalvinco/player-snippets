@@ -324,11 +324,14 @@ $( document ).ready(function() {
             
                     if(ps_popup.cta!=""){
                         $('.kapow-popup-'+ps_popup.pu_id+' .btn-cta-pspop').click(function(){
+                            
                             if(ps_popup.cta_target=="new"){
                                 window.open(ps_popup.cta);
                             } else {
                                 window.location=ps_popup.cta;
                             }
+                            var id='.kapow-popup-'+ps_popup.pu_id;
+                            $(id).remove();                            
                         })
 
                     }
