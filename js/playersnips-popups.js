@@ -66,7 +66,7 @@ $( document ).ready(function() {
             ps_popup.subheading = new_subheading;   
             
             if(ps_popup.pu_type=="emoji_bar"){
-                html+='<div class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
+                html+='<div class="kapow-player kapow-popup-'+ps_popup.pu_id+'">';
                 html+='    <div class="pb-2">';
                 html+='        <div class="'+pop_action;
                 html+='                    animate__animated '+animate_css;
@@ -80,7 +80,7 @@ $( document ).ready(function() {
                 html+='</div>';
             }
             if(ps_popup.pu_type=="avatar_bar"){
-                html+='<div class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
+                html+='<div class="kapow-player kapow-popup-'+ps_popup.pu_id+'">';
                 html+='    <div class="pb-2">';
                 html+='        <div class="'+pop_action;
                 html+='                    animate__animated '+animate_css;
@@ -97,7 +97,7 @@ $( document ).ready(function() {
                 var lotti_json=ps_popup.lottie_url;
                 var lottie_html = '<lottie-player id="ps-lottie" src="'+lotti_json+'"  background="transparent"  speed="1"   style="max-height: 68px;max-width: 68px;"  loop autoplay></lottie-player>';
 
-                html+='<div class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
+                html+='<div class="kapow-player kapow-popup-'+ps_popup.pu_id+'">';
                 html+='    <div class="pb-2">';
                 html+='        <div class="'+pop_action;
                 html+='                    animate__animated '+animate_css;
@@ -115,12 +115,12 @@ $( document ).ready(function() {
                     pill_shape="rounded";
                 }
                 html += '<style> ';
-                html += '.kapow-popup-'+ps_popup.lesson_id+'{';
+                html += '.kapow-popup-'+ps_popup.pu_id+'{';
                 html += 'width:18rem;'
                 html += '}';
                 html += '</style>'
 
-                html+='<div class="fr-view"><div data-theme="light" class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
+                html+='<div class="fr-view"><div data-theme="light" class="kapow-player kapow-popup-'+ps_popup.pu_id+'">';
                 html+=' <div class="card shadow  '+pill_shape+'  text-'+ps_popup.alignment
                 html+='                    animate__animated '+animate_css;
                 html+='"     style="background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';"> ';
@@ -153,12 +153,12 @@ $( document ).ready(function() {
                     pill_shape="rounded";
                 }
                 html += '<style> ';
-                html += '.kapow-popup-'+ps_popup.lesson_id+'{';
+                html += '.kapow-popup-'+ps_popup.pu_id+'{';
                 html += 'width:18rem;'
                 html += '}';
                 html += '</style>'
 
-                html+='<div class="fr-view"><div data-theme="light" class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
+                html+='<div class="fr-view"><div data-theme="light" class="kapow-player kapow-popup-'+ps_popup.pu_id+'">';
                 html+=' <div class="card shadow  '+pill_shape+'  text-'+ps_popup.alignment;
                 html+='                    animate__animated '+animate_css;
                 html+='"     style="cursor:pointer;background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';"> ';
@@ -192,12 +192,12 @@ $( document ).ready(function() {
                     pill_shape="rounded";
                 }
                 html += '<style> ';
-                html += '.kapow-popup-'+ps_popup.lesson_id+'{';
+                html += '.kapow-popup-'+ps_popup.pu_id+'{';
                 html += 'width:28rem;'
                 html += '}';
                 html += '</style>'
 
-                html+='<div class="fr-view"><div data-theme="light" class="kapow-player kapow-popup-'+ps_popup.lesson_id+'">';
+                html+='<div class="fr-view"><div data-theme="light" class="kapow-player kapow-popup-'+ps_popup.pu_id+'">';
                 html+=' <div class="card shadow  '+pill_shape+'  text-'+ps_popup.alignment;
                 html+='                    animate__animated '+animate_css;
                 html+='"     style="background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';"> ';
@@ -221,7 +221,7 @@ $( document ).ready(function() {
                 html+='</div></div>';            
             }            
 
-            if(html!="" && $(".kapow-popup-"+ps_popup.lesson_id).length==0){
+            if(html!="" && $(".kapow-popup-"+ps_popup.pu_id).length==0){
                 window.setTimeout(() => {
                     if(ps_popup.sound!=""){
                         try {
@@ -289,19 +289,21 @@ $( document ).ready(function() {
                     if(ps_popup.autoclose!=0){
                         console.log("has autoclose",ps_popup.autoclose)
                         window.setTimeout(() => {
-                            var id='.kapow-popup-'+ps_popup.lesson_id+' .animate__animated';
+                            var id='.kapow-popup-'+ps_popup.pu_id+' .animate__animated';
                             removePopup(id);
+                            id='.kapow-popup-'+ps_popup.pu_id;
+                            $(id).remove();
                         }, ps_popup.autoclose*1000);
                     }
 
-                    $('.kapow-popup-'+ps_popup.lesson_id+' .btn-close-pspop').click(function(){
-                        var id='.kapow-popup-'+ps_popup.lesson_id;
+                    $('.kapow-popup-'+ps_popup.pu_id+' .btn-close-pspop').click(function(){
+                        var id='.kapow-popup-'+ps_popup.pu_id;
                         $(id).remove();
                         
                     })                            
             
                     if(ps_popup.cta!=""){
-                        $('.kapow-popup-'+ps_popup.lesson_id+' .btn-cta-pspop').click(function(){
+                        $('.kapow-popup-'+ps_popup.pu_id+' .btn-cta-pspop').click(function(){
                             if(ps_popup.cta_target=="new"){
                                 window.open(ps_popup.cta);
                             } else {
@@ -314,14 +316,14 @@ $( document ).ready(function() {
 
                 }, ps_popup.delay*1000);
             } else {
-                if( $(".kapow-popup-"+ps_popup.lesson_id).length>0){
-                    var id='.kapow-popup-'+ps_popup.lesson_id;
+                if( $(".kapow-popup-"+ps_popup.pu_id).length>0){
+                    var id='.kapow-popup-'+ps_popup.pu_id;
                     // console.log("closing",id);
                     $(id+' .animate__animated').removeClass("animate__fadeOut");
                     if(ps_popup.autoclose!=0){
                         console.log("has autoclose",ps_popup.autoclose)
                         window.setTimeout(() => {
-                            var id='.kapow-popup-'+ps_popup.lesson_id+' .animate__animated';
+                            var id='.kapow-popup-'+ps_popup.pu_id+' .animate__animated';
                             removePopup(id);
                         }, ps_popup.autoclose*1000);
                     }                       
@@ -346,6 +348,7 @@ $( document ).ready(function() {
         //    console.log("Changed",data);
             window.setTimeout(function(){
                if($(".take .ps-popup").length>0){
+                    var ctr = 0;
                   $(".take .ps-popup").each(function(){
                         // console.log("Got Pop",$(this))
                         var trigger = "lesson_start"
@@ -355,10 +358,13 @@ $( document ).ready(function() {
                         var pu_type = "emoji-pill";                      
                         if(typeof($(this).data("pu-type"))!="undefined"){
                             pu_type = $(this).data("pu-type");
-                        }                        
+                        }   
+                        ctr+=1;                     
                         var ps_popup_options =     {
                             "course_id":data.course.id,
                             "lesson_id":data.lesson.id,
+                            "ctr":ctr,
+                            "pu_id":data.course.id+"-"+data.lesson.id+"-"+ctr,
                             "pu_type":pu_type
                             }  
                         if(typeof($(this).data("color-bg"))!="undefined"){
@@ -468,7 +474,7 @@ $( document ).ready(function() {
                         }     
                         var already_added = false;
                         window.__playersnips_popups.forEach(function(ps_popup){
-                            if(ps_popup.course_id==data.course.id && ps_popup.lesson_id==data.lesson.id){
+                            if(ps_popup.course_id==data.course.id && ps_popup.lesson_id==data.lesson.id&&ps_popup.ctr==ctr){
                                 already_added = true; 
                                 
                             }
