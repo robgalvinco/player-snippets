@@ -17,6 +17,8 @@ $( document ).ready(function() {
             var pill_shape = ps_popup.shape;
             if(ps_popup.position=="top-full" && $("#ps-container-top-full").length==0){
                 $("body").append('<div id="ps-container-top-full"></div>');
+            }
+            if(ps_popup.position=="top-full"){
                 animate_css = "animate__fadeInDown";
                 pill_width = " w-100 ";
                 pill_shape="";
@@ -24,34 +26,50 @@ $( document ).ready(function() {
 
             if(ps_popup.position=="top" && $("#ps-container-top").length==0){
                 $("body").append('<div id="ps-container-top"></div>');
+            }
+            if(ps_popup.position=="top"){
                 animate_css = "animate__fadeInDownBig";
             }
+
             if(ps_popup.position=="top-left" && $("#ps-container-top-left").length==0){
                 $("body").append('<div id="ps-container-top-left"></div>');
+            }
+            if(ps_popup.position=="top-left"){
                 animate_css = "animate__fadeInLeftBig"
             }
             if(ps_popup.position=="top-right" && $("#ps-container-top-right").length==0){
                 $("body").append('<div id="ps-container-top-right"></div>');
+            }
+            if(ps_popup.position=="top-right"){
                 animate_css = "animate__fadeInRightBig"
             }
             if(ps_popup.position=="bottom-full" && $("#ps-container-bottom-full").length==0){
                 $("body").append('<div id="ps-container-bottom-full"></div>');
+            }            
+            if(ps_popup.position=="bottom-full"){
                 animate_css = "animate__fadeInUp";
                 pill_width = " w-100 ";
                 pill_shape="";
             }            
             if(ps_popup.position=="bottom" && $("#ps-container-bottom").length==0){
                 $("body").append('<div id="ps-container-bottom"></div>');
+
+            }
+            if(ps_popup.position=="bottom" ){
                 animate_css = "animate__fadeInUpBig"
             }
             if(ps_popup.position=="bottom-left" && $("#ps-container-bottom-left").length==0){
                 $("body").append('<div id="ps-container-bottom-left"></div>');
+            }
+            if(ps_popup.position=="bottom-left" ){
                 animate_css = "animate__fadeInLeftBig"
             }
             if(ps_popup.position=="bottom-right" && $("#ps-container-bottom-right").length==0){
                 $("body").append('<div id="ps-container-bottom-right"></div>');
+            } 
+            if(ps_popup.position=="bottom-right"){
                 animate_css = "animate__fadeInRightBig"
-            }            
+            }                        
 
             var pop_action = "btn-close-pspop";
             if(ps_popup.cta!=""){
