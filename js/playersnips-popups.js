@@ -309,8 +309,10 @@ $( document ).ready(function() {
                         window.setTimeout(() => {
                             var id='.kapow-popup-'+ps_popup.pu_id+' .animate__animated';
                             removePopup(id);
-                            id='.kapow-popup-'+ps_popup.pu_id;
-                            $(id).remove();
+                            window.setTimeout(() => {
+                                id='.kapow-popup-'+ps_popup.pu_id;
+                                $(id).remove();
+                            }, 1000);
                         }, ps_popup.autoclose*1000);
                     }
 
