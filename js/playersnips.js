@@ -6,13 +6,13 @@ $( document ).ready(function() {
         var f = document.getElementsByTagName("script")[0];
             var playerbs_css = document.createElement("link");
             playerbs_css.rel = "stylesheet";
-            playerbs_css.href = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.27/css/kapow-playerbs.css";
+            playerbs_css.href = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.28/css/kapow-playerbs.css";
             f.parentNode.insertBefore(playerbs_css, f);
 
            var snipps_css = document.createElement("link");
            snipps_css.rel = "stylesheet";
            snipps_css.href = "https://assets.superpowerups.com/playersnips.css";
-           snipps_css.href = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.27/css/text.css";
+           snipps_css.href = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.28/css/text.css";
            f.parentNode.insertBefore(snipps_css, f);
 
            var animate_css = document.createElement("link");
@@ -27,7 +27,7 @@ $( document ).ready(function() {
        j = document.createElement("script");
        j.async = true;
        j.src = "https://assets.superpowerups.com/player-confetti-cannon.js";
-       j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.27/js/player-confetti-cannon.js";
+       j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.28/js/player-confetti-cannon.js";
        f.parentNode.insertBefore(j, f);
     }
     const inject_fap= function(){
@@ -54,7 +54,7 @@ $( document ).ready(function() {
            f.parentNode.insertBefore(j, f);
            j2 = document.createElement("script");
            j2.async = true;
-           j2.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.27/js/playersnips-typeform.js";
+           j2.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.28/js/playersnips-typeform.js";
            f.parentNode.insertBefore(j2, f);
            var _css_popup = document.createElement("link");
         _css_popup.rel = "stylesheet";
@@ -87,7 +87,7 @@ $( document ).ready(function() {
 
            j2 = document.createElement("script");
            j2.async = true;
-           j2.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.27/js/playersnips-lottie.js";
+           j2.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.28/js/playersnips-lottie.js";
            f.parentNode.insertBefore(j2, f);
     }      
 
@@ -97,7 +97,7 @@ $( document ).ready(function() {
        j = document.createElement("script");
        j.async = true;
        j.src = "https://assets.superpowerups.com/playersnips-sounds.js";
-       j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.27/js/playersnips-sound.js";
+       j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.28/js/playersnips-sound.js";
 
        f.parentNode.insertBefore(j, f);
     }    
@@ -107,7 +107,7 @@ $( document ).ready(function() {
            j = document.createElement("script");
            j.async = true;
            j.src = "https://assets.superpowerups.com/playersnips-popups.js";
-           j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.27/js/playersnips-popups.js";    
+           j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.28/js/playersnips-popups.js";    
            f.parentNode.insertBefore(j, f);
             
     }  
@@ -117,7 +117,7 @@ $( document ).ready(function() {
            j = document.createElement("script");
            j.async = true;
            j.src = "https://assets.superpowerups.com/playersnips-events.js";
-           j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.27/js/playersnips-events.js";    
+           j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.28/js/playersnips-events.js";    
            f.parentNode.insertBefore(j, f);
             
     }     
