@@ -37,9 +37,9 @@ $( document ).ready(function() {
         CoursePlayerV2.on('hooks:contentDidChange', function(data) {
             //console.log("Content changed",data);
             window.setTimeout(function(){
-               if($(".fr-view .kapow-confetti").length>0){
+               if($(".take .kapow-confetti").length>0){
                   //console.log("Confetti Detected");
-                  $(".fr-view .kapow-confetti").each(function(){
+                  $(".take .kapow-confetti").each(function(){
                       console.log("found",$(this));
                       var colors = $(this).data("color");
                       var emojis = $(this).data("emojis");
