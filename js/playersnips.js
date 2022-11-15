@@ -107,10 +107,20 @@ $( document ).ready(function() {
            j = document.createElement("script");
            j.async = true;
            j.src = "https://assets.superpowerups.com/playersnips-popups.js";
-           j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@vlatest/js/playersnips-popups.js";    
+           j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.22/js/playersnips-popups.js";    
            f.parentNode.insertBefore(j, f);
             
     }  
+
+    const inject_psevents= function(){
+        var f = document.getElementsByTagName("script")[0],
+           j = document.createElement("script");
+           j.async = true;
+           j.src = "https://assets.superpowerups.com/playersnips-events.js";
+           j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@vlatest/js/playersnips-events.js";    
+           f.parentNode.insertBefore(j, f);
+            
+    }     
 
     // Course player
     if(typeof(CoursePlayerV2) !== 'undefined') {
@@ -118,6 +128,7 @@ $( document ).ready(function() {
       inject_confetijs();
       inject_bsjs();
       inject_sound();
+      inject_psevents();
       inject_pspops();
       inject_fap();
       inject_typeform();

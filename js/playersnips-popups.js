@@ -353,14 +353,17 @@ $( document ).ready(function() {
                 }
             }
         }
-        CoursePlayerV2.on('hooks:contentWasCompleted', function(data) {
+        document.querySelector(".take").addEventListener("kapowLessonCompleted", (event) => {
+            console.log("******** kapowLessonCompleted",event);
+            var data = event.detail;
+        //CoursePlayerV2.on('hooks:contentWasCompleted', function(data) {
             // console.log("Content was completed",data);
             // check if any match in window.__playersnips_popups
             if(typeof(window.__playersnips_popups)!="undefined"){
                 // console.log("window.__playersnips_popups",window.__playersnips_popups);
                 window.__playersnips_popups.forEach(function(ps_popup){
                     // console.log("ps_popup",ps_popup);
-                    if(ps_popup.course_id==data.course.id && ps_popup.lesson_id==data.lesson.id){
+                    if(ps_popup.course_id==data.course_id && ps_popup.lesson_id==data.lesson_id){
                         // console.log("found match",ps_popup);
                         openPopup(ps_popup)
                     }
