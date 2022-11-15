@@ -4,7 +4,7 @@
 /* this is color overirdes that can be added to the SFC settings
 
 <style>
-.take .fr-view {
+.take  {
     --cta-bg: #252525;
     --cta-text: #FFFFFF;
 }
@@ -13,15 +13,15 @@
 
 /* This is a class for a two column layout in text lessons */
 
-.take .fr-view .side-by-side { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; }
-.take .fr-view .side-by-side__image { width: 100%; margin-bottom: 32px; }
-@media screen and (min-width: 768px) { .take .fr-view .side-by-side__image { flex: 1 1 50%; max-width: 50%; margin-bottom: 0; display:block; height:auto; width:100%; } }
-.take .fr-view .side-by-side__text { width: 100%; margin-bottom: 32px;  }
-@media screen and (min-width: 768px) { .take .fr-view .side-by-side__text { flex: 1 1 50%; max-width: 50%; padding-left:1em; } }
+.take  .side-by-side { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; }
+.take  .side-by-side__image { width: 100%; margin-bottom: 32px; }
+@media screen and (min-width: 768px) { .take  .side-by-side__image { flex: 1 1 50%; max-width: 50%; margin-bottom: 0; display:block; height:auto; width:100%; } }
+.take  .side-by-side__text { width: 100%; margin-bottom: 32px;  }
+@media screen and (min-width: 768px) { .take  .side-by-side__text { flex: 1 1 50%; max-width: 50%; padding-left:1em; } }
 
 /* These are classes for upgrade banners in lessons */
 
-.take .fr-view .cta {
+.take  .cta {
     line-height: 1.5rem;
     font-weight: 400;
     /* font-family: Lato; */
@@ -42,29 +42,29 @@
 }
 
 @media (min-width: 415px) {
-    .take .fr-view .cta {
+    .take  .cta {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
   }
 }
-.take .fr-view  .cta-content {
+.take   .cta-content {
     margin: 0 0 0.5rem;
 }
 
-.take .fr-view  .cta-content,
-.take .fr-view  .cta-content h1,
-.take .fr-view  .cta-content h2,
-.take .fr-view  .cta-content h3,
-.take .fr-view  .cta-content h4,
-.take .fr-view  .cta-content h5{
+.take   .cta-content,
+.take   .cta-content h1,
+.take   .cta-content h2,
+.take   .cta-content h3,
+.take   .cta-content h4,
+.take   .cta-content h5{
     color: var(--cta-text,inherit);
 }
-.take .fr-view  .cta-side .cta-content {
+.take   .cta-side .cta-content {
     max-width:70%;
 }
-.take .fr-view .cta h4 {
+.take  .cta h4 {
   font-size: 12px;
   font-size: 0.75rem;
   margin: 0;
@@ -73,10 +73,10 @@
 }
 
 
-.take .fr-view .cta .button, .take .fr-view .kapow-player .button {
+.take  .cta .button, .take  .kapow-player .button {
     margin: 0 0 0.5rem;
 }
-.take .fr-view .cta .button,  .take .fr-view .kapow-player .button{
+.take  .cta .button,  .take  .kapow-player .button{
     list-style-type: none;
     box-sizing: inherit;
     text-align: center;
@@ -97,12 +97,12 @@
     color: #fff; */
 }
 
-.take .fr-view .kapow-player ul {
+.take  .kapow-player ul {
     margin-top: 0em !important;
     padding-left: 0px !important;
 }
 
-.take .fr-view .kapow-player img.fr-dii {
+.take  .kapow-player img.fr-dii {
     margin-left: 0px;
     margin-right: 0px;
     max-width: 100%;

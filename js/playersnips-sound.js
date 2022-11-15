@@ -72,9 +72,9 @@ $( document ).ready(function() {
         CoursePlayerV2.on('hooks:contentDidChange', function(data) {
             //console.log("Content changed",data);
             window.setTimeout(function(){
-               if($(".fr-view .kapow-sound").length>0){
+               if($(".take .kapow-sound").length>0){
                   //console.log("Confetti Detected");
-                  $(".fr-view .kapow-sound").each(function(){
+                  $(".take .kapow-sound").each(function(){
                       console.log("found",$(this));
                       var sound=$(this).data("sound");
                       var trigger = $(this).data("trigger");
