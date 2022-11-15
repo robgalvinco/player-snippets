@@ -52,14 +52,17 @@ $( document ).ready(function() {
                 console.log(error)
             }
           }
-        CoursePlayerV2.on('hooks:contentWasCompleted', function(data) {
+          document.querySelector(".take").addEventListener("kapowLessonCompleted", (event) => {
+            console.log("******** kapowLessonCompleted",event);
+            var data = event.detail;
+        //CoursePlayerV2.on('hooks:contentWasCompleted', function(data) {
             console.log("Content was completed",data);
             // check if any match in window.__playersnips_sound
             if(typeof(window.__playersnips_sound)!="undefined"){
                 console.log("window.__playersnips_sound",window.__playersnips_sound);
                 window.__playersnips_sound.forEach(function(ps_sound){
                     console.log("ps_sound",ps_sound);
-                    if(ps_sound.course_id==data.course.id && ps_sound.lesson_id==data.lesson.id){
+                    if(ps_sound.course_id==data.course_id && ps_sound.lesson_id==data.lesson_id){
                         console.log("found match",ps_sound);
                         playSound(ps_sound.sound)
                     }

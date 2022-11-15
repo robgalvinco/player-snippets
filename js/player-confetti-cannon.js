@@ -4,14 +4,17 @@ $( document ).ready(function() {
     if(typeof(CoursePlayerV2) !== 'undefined') {
         const jsConfetti = new JSConfetti();
           
-        CoursePlayerV2.on('hooks:contentWasCompleted', function(data) {
+        document.querySelector(".take").addEventListener("kapowLessonCompleted", (event) => {
+            console.log("******** kapowLessonCompleted",event);
+            var data = event.detail;
+        //CoursePlayerV2.on('hooks:contentWasCompleted', function(data) {
             console.log("Content was completed",data);
             // check if any match in window.__confetti_canon_lesson_complete
             if(typeof(window.__confetti_canon_lesson_complete)!="undefined"){
                 console.log("window.__confetti_canon_lesson_complete",window.__confetti_canon_lesson_complete);
                 window.__confetti_canon_lesson_complete.forEach(function(confetti){
                     console.log("confetti",confetti);
-                    if(confetti.course_id==data.course.id && confetti.lesson_id==data.lesson.id){
+                    if(confetti.course_id==data.course_id && confetti.lesson_id==data.lesson_id){
                         console.log("found match",confetti);
                         if(typeof(confetti.options.confettiColors)!="undefined"){
                             var color_options = {

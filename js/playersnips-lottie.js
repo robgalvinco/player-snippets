@@ -20,7 +20,10 @@ LottieInteractivity.create({
 $( document ).ready(function() {
 
     if(typeof(CoursePlayerV2) !== 'undefined') {
-        CoursePlayerV2.on('hooks:contentWasCompleted', function(data) {
+        document.querySelector(".take").addEventListener("kapowLessonCompleted", (event) => {
+            console.log("******** kapowLessonCompleted",event);
+            var data = event.detail;
+        //CoursePlayerV2.on('hooks:contentWasCompleted', function(data) {
         }); 
         CoursePlayerV2.on('hooks:contentDidChange', function(data) {
             window.setTimeout(function(){
