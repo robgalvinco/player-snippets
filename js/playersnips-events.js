@@ -142,6 +142,20 @@ $( document ).ready(function() {
                 })
     
     
+            } else {
+                for (let index = 0; index < __ps_events.length; index++) {
+                    const element = __ps_events[index];
+                    if(element.lesson_id==data.lesson.id){
+                        //console.log("Lesson Completed",element);
+                        trigger_event("kapowLessonCompleted",{
+                            "course_id": data.course.id,
+                            "lesson_id":element.lesson_id
+                        })
+                        __ps_events[index].is_complete =  true;
+                    }
+                }
+
+
             }
             //console.log("Content was completed",data);
         });
