@@ -107,7 +107,7 @@ $( document ).ready(function() {
            j = document.createElement("script");
            j.async = true;
            j.src = "https://assets.superpowerups.com/playersnips-popups.js";
-           j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.28/js/playersnips-popups.js";    
+           j.src = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.30/js/playersnips-popups.js";    
            f.parentNode.insertBefore(j, f);
             
     }  
