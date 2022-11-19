@@ -243,7 +243,7 @@ $( document ).ready(function() {
                 window.setTimeout(() => {
                     if(ps_popup.sound!=""){
                         try {
-                            var sound_file="https://import.cdn.thinkific.com/551340/courses/1589194/894733091-211113-122642.mp3";
+                            var sound_file=ps_popup.sound;
                             if(ps_popup.sound=="doink"){
                                 sound_file="https://import.cdn.thinkific.com/551340/courses/1589194/button09a-211113-115416.mp3";
                             }
