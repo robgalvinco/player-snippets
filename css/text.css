@@ -103,9 +103,9 @@
 }
 
 .take  .kapow-player img.fr-dii {
-    margin-left: 0px;
-    margin-right: 0px;
-    max-width: 100%;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    max-width: 100% !important;
 }
 
 .kapow-player .block-timeline {
