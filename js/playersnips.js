@@ -12,7 +12,7 @@ $( document ).ready(function() {
            var snipps_css = document.createElement("link");
            snipps_css.rel = "stylesheet";
            snipps_css.href = "https://assets.superpowerups.com/playersnips.css";
-           snipps_css.href = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.28/css/text.css";
+           snipps_css.href = "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.32/css/text.css";
            f.parentNode.insertBefore(snipps_css, f);
 
            var animate_css = document.createElement("link");
