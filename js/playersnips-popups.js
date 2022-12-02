@@ -244,6 +244,7 @@ $( document ).ready(function() {
                     if(ps_popup.sound!=""){
                         try {
                             var sound_file=ps_popup.sound;
+                            console.log("sound:"+sound_file);
                             if(ps_popup.sound=="doink"){
                                 sound_file="https://import.cdn.thinkific.com/551340/courses/1589194/button09a-211113-115416.mp3";
                             }
@@ -491,7 +492,7 @@ $( document ).ready(function() {
                         }  else {
                             ps_popup_options.iframe ="";
                         }                                                                                                                                                                                                            
-                        
+                        console.log(ps_popup_options);
                       if(trigger=="lesson_complete"){
                         if(typeof(window.__playersnips_popups)!="undefined" ){
                             
