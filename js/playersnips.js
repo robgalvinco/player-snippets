@@ -77,12 +77,12 @@ $( document ).ready(function() {
         var f = document.getElementsByTagName("script")[0],
            j = document.createElement("script");
            j.async = true;
-           j.src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+           j.src = "https://unpkg.com/@lottiefiles/lottie-player@1.6.0/dist/lottie-player.js";
            f.parentNode.insertBefore(j, f);
            
            j1 = document.createElement("script");
            j1.async = true;
-           j1.src = "https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js";
+           j1.src = "https://unpkg.com/@lottiefiles/lottie-interactivity@1.6.0/dist/lottie-interactivity.min.js";
            f.parentNode.insertBefore(j1, f);
 
            j2 = document.createElement("script");
