@@ -182,6 +182,10 @@ $( document ).ready(function() {
                 html+='"     style="cursor:pointer;background-color:'+ps_popup.color_bg+';color:'+ps_popup.color_text+';"> ';
                 
                 html+='     <div class="card-body d-flex flex-column">';
+                if(ps_popup.cta!="" ){
+                    html+='     <a href="'+ps_popup.cta+'" target="'+ps_popup.cta_target+'" style="text-decoration:none;color:inherit;">';
+                }
+
                 html+= lottie_html;
                 if(ps_popup.heading!=""){
                     html+='     <p class="card-title fw-bold">'+ps_popup.heading+' </p>';
@@ -189,9 +193,10 @@ $( document ).ready(function() {
                 if(ps_popup.subheading!=""){
                     html+='     <p class="card-text mb-4">'+ps_popup.subheading+'</p>';
                 }
-                if(ps_popup.cta!="" && ps_popup.cta_text!=""){
-                    html+='     <a href="'+ps_popup.cta+'" target="'+ps_popup.cta_target+'" class="button brand-color__background brand-color__dynamic-text mt-auto align-self-start">'+ps_popup.cta_text+'</a>';
+                if(ps_popup.cta!="" ){
+                    html+='     </a';
                 }
+
                 html+='     </div>';
                 html+='<i class="btn-close-pspop brand-color__text fa-solid  fa-circle-xmark" style="cursor:pointer;position:absolute;top:10px;right:10px;"></i>'
                 
