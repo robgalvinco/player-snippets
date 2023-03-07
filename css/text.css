@@ -378,7 +378,8 @@
 #ps-container-bottom-right{
     position:fixed;z-index:9999;bottom:4%;right:2%;
 }
-
+/* fix mobile popup issue */
+div[class*="kapow-popup-"]{max-width:95vw;}
 
 
 
