@@ -171,6 +171,12 @@ $(document).ready(function () {
     }
     if (typeof CoursePlayerV2 !== "undefined") {
         var loaded = false;
+        if($(".course-player__preview-bar").length>0){
+            if(!loaded){
+                init();
+                loaded=true;
+            }            
+        }
         CoursePlayerV2.on("hooks:contentDidChange", function (data) {
             //only activate for admins
             if($(".course-player__preview-bar").length>0){
