@@ -116,7 +116,7 @@ $(document).ready(function () {
                 imageWidth: 100,
                 imageHeight: 100,
                 title: 'You are ready for the next step',
-                html: 'We just exported a CSV file <strong>with '+downloads.length+' items</strong>for you to enhance inside of Google Sheets and then use inside of the Resource Library.',
+                html: 'We just exported a CSV file <strong>with '+downloads.length+' items</strong> for you to enhance inside of Google Sheets and then use inside of the Resource Library 💥 PowerUp.',
                 showDenyButton: false,
                 showCancelButton: true,
                 confirmButtonText: 'Go To The Next Step',
