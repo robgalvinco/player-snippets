@@ -89,7 +89,7 @@ $(document).ready(function () {
             if (result.isConfirmed) {
                 autoscan=true;
                 console.log("current lesson",currentlessondata);
-                scanLesson();
+                gotoNextUnscannedLesson()
             } 
         })  
     }  
