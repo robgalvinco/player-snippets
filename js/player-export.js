@@ -16,6 +16,7 @@ $(document).ready(function () {
                 showDenyButton: false,
                 showCancelButton: true,
                 confirmButtonText: 'Yes',
+                cancelButtonText: 'No',
                 
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
@@ -81,8 +82,7 @@ $(document).ready(function () {
             html: 'We will scan for download lessons and export a CSV file that you can use to import into your Resource Library 💥 Power Up.<br/><a href="https://docs-sitepagetemplates.superpowerups.com/the-collections/resource-library" target="_blank">View Help Guides</a>',
             showDenyButton: false,
             showCancelButton: true,
-            confirmButtonText: 'Yes',
-            cancelButtontext:'No'
+            confirmButtonText: 'Begin Export'
             
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
@@ -109,24 +109,34 @@ $(document).ready(function () {
         });        
     };
     function autoScanFinished(){
-        exportToCSV();
-        Swal.fire({
-            imageUrl: "https://s3.amazonaws.com/thinkific-import/filestack-partner-portal/2QIv8OCvRnuBAeok10rq_Text%20Effects.png",
-            imageWidth: 100,
-            imageHeight: 100,
-            title: 'You are ready for the next step',
-            html: 'We just exported a CSV file for you to enhance inside of Google Sheets and then use inside of the Resource Library.',
-            showDenyButton: false,
-            showCancelButton: true,
-            confirmButtonText: 'Go To The Next Step',
-            cancelButtontext:'Canel'
-            
-        }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-                window.location="https://docs-sitepagetemplates.superpowerups.com/the-collections/resource-library/exporting-resources-from-a-course#step-3-import-the-csv-file-into-google-sheets";
-            } 
-        })         
+        if(downloads.length>0){
+            exportToCSV();
+            Swal.fire({
+                imageUrl: "https://s3.amazonaws.com/thinkific-import/filestack-partner-portal/2QIv8OCvRnuBAeok10rq_Text%20Effects.png",
+                imageWidth: 100,
+                imageHeight: 100,
+                title: 'You are ready for the next step',
+                html: 'We just exported a CSV file <strong>with '+downloads.length+' items</strong>for you to enhance inside of Google Sheets and then use inside of the Resource Library.',
+                showDenyButton: false,
+                showCancelButton: true,
+                confirmButtonText: 'Go To The Next Step',
+                cancelButtontext:'Cancel'
+                
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    window.location="https://docs-sitepagetemplates.superpowerups.com/the-collections/resource-library/exporting-resources-from-a-course#step-3-import-the-csv-file-into-google-sheets";
+                } 
+            })    
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Hmmm...',
+                text: 'We did not find any downloads in this course. Be sure to have your downloads inside a Download Lesson type.!',
+                footer: '<a href="https://docs-sitepagetemplates.superpowerups.com/the-collections/resource-library" target="_blank">Check the Help Guides</a>'
+              })
+        }
+     
     }   
     const gotoNextUnscannedLesson = function(){
         console.log("finding next lesson");
