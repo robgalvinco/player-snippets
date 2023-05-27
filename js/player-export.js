@@ -1,4 +1,5 @@
 
+$(document).ready(function () {
     var downloads = []
     var autoscan = false;
     var finishedScan = false;
@@ -189,3 +190,4 @@
 
         });        
     }    
+});
