@@ -6,7 +6,7 @@ $(document).ready(function () {
     var currentlessondata = {};
     function scanLesson(){
         $('a[data-lesson-id="'+currentlessondata.lesson.id+'"]').attr("data-auto-scanned","true");
-      
+        
         if(isDownloadLesson()){
             Swal.fire({
                 title: 'We found a download lesson. Include these?',
@@ -89,6 +89,7 @@ $(document).ready(function () {
             if (result.isConfirmed) {
                 autoscan=true;
                 console.log("current lesson",currentlessondata);
+                $(".content-item__progress--active a").first().attr("data-auto-scanned","true");
                 gotoNextUnscannedLesson()
             } 
         })  
