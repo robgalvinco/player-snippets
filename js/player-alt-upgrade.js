@@ -1,5 +1,5 @@
 /*
-last release: <script src="https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.55/js/player-alt-upgrade.js" async></script>
+last release: <script src="https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.56/js/player-alt-upgrade.js" async></script>
 
 expects 
 kapow_player_alt_upgrades = [
@@ -72,7 +72,7 @@ $(document).ready(function () {
                         }
 
                     }
-                    $('.player-modal__content').css('display', 'unset');
+                    $('.player-modal__content').css('opacity', '1');
             
                     //anchor.attr('href', newhref);
                 }
@@ -91,7 +91,7 @@ $(document).ready(function () {
         if(anyalts(data.course.id) && !started_scan && is_free_trial){
             started_scan= true;
             // hide content to avoid flickering
-            $(body).append("<style>.player-modal__content{display:none;}</style>")
+            $("body").append("<style>.player-modal__content{opacity:0;}</style>")
             startScan();
         }
       });
