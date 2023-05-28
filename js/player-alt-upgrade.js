@@ -1,4 +1,6 @@
 /*
+last release: <script src="https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@v1.0.55/js/player-alt-upgrade.js" async></script>
+
 expects 
 kapow_player_alt_upgrades = [
     {
@@ -10,6 +12,7 @@ kapow_player_alt_upgrades = [
         no_thanks:""
     }
 ]
+
 */
 $(document).ready(function () {
     var started_scan = false;
@@ -69,6 +72,8 @@ $(document).ready(function () {
                         }
 
                     }
+                    $('.player-modal__content').css('display', 'unset');
+            
                     //anchor.attr('href', newhref);
                 }
                 });
@@ -85,6 +90,8 @@ $(document).ready(function () {
         is_free_trial = data.enrollment.is_free_trial;
         if(anyalts(data.course.id) && !started_scan && is_free_trial){
             started_scan= true;
+            // hide content to avoid flickering
+            $(body).append("<style>.player-modal__content{display:none;}</style>")
             startScan();
         }
       });
