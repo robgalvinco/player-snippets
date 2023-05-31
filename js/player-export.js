@@ -22,7 +22,22 @@ $(document).ready(function () {
                 /* Read more about isConfirmed, isDenied below */
                 console.log(result);
                 if (result.isConfirmed) {
-                    getLessonDownloads(result.value);
+                    var categories = result.value;
+                    Swal.fire({
+                        title: 'Add additional keywords to this group',
+                        input: 'text',
+                        inputLabel: 'Tag with keywords (seperated by a | symbol)',
+                        inputValue: "",
+                        showDenyButton: false,
+                        showCancelButton: false,
+                        confirmButtonText: 'Continue',
+                        cancelButtonText: 'No',
+                        
+                    }).then((result) => {
+                        var keywords = result.value;
+                        getLessonDownloads(categories,keywords);
+                    })
+                    
                 } 
                 gotoNextUnscannedLesson();
             })            
@@ -32,7 +47,7 @@ $(document).ready(function () {
             gotoNextUnscannedLesson();
         }        
     }
-    function getLessonDownloads(categories){
+    function getLessonDownloads(categories, keywords){
         console.log("getting downloads")
         $('.course-player__download-files__list-item').each(function() {
             const nameElement = $(this).find('.course-player__download-files__label');
@@ -40,8 +55,10 @@ $(document).ready(function () {
         
             const name = nameElement.text().trim();
             const link = linkElement.attr('href');
-        
-            downloads.push({ name, link, categories });
+            const matchingImage = $('img[alt="' + name + '"]').first();
+            const imageUrl = matchingImage.length ? matchingImage.attr('alt') : '';
+                  
+            downloads.push({ name, link, imageUrl, categories, keywords });
         });     
         console.log(downloads);   
     }
