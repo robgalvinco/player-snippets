@@ -68,10 +68,10 @@ $(document).ready(function () {
     function exportToCSV() {
       
         let csvContent = 'data:text/csv;charset=utf-8,';
-        csvContent += 'name,description,categories,linkUrl,imageUrl\n';
+        csvContent += 'name,description,categories,linkUrl,imageUrl,keywords\n';
       
         downloads.forEach(function(item) {
-          csvContent += `${item.name},,${item.categories},${item.link},\n`;
+          csvContent += `${item.name},,${item.categories},${item.link},${item.imageUrl},${item.keywords}\n`;
         });
       
         const encodedUri = encodeURI(csvContent);
