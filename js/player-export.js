@@ -38,8 +38,10 @@ $(document).ready(function () {
                         getLessonDownloads(categories,keywords);
                     })
                     
-                } 
-                gotoNextUnscannedLesson();
+                } else {
+                    gotoNextUnscannedLesson();
+                }
+                
             })            
            
             
@@ -56,7 +58,7 @@ $(document).ready(function () {
             const name = nameElement.text().trim();
             const link = linkElement.attr('href');
             const matchingImage = $('img[alt="' + name + '"]').first();
-            const imageUrl = matchingImage.length ? matchingImage.attr('alt') : '';
+            const imageUrl = matchingImage.length ? matchingImage.attr('src') : '';
                   
             downloads.push({ name, link, imageUrl, categories, keywords });
         });     
