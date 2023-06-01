@@ -17,16 +17,28 @@ $( document ).ready(function() {
                     if(confetti.course_id==data.course_id && confetti.lesson_id==data.lesson_id){
                         console.log("found match",confetti);
                         if(typeof(confetti.options.confettiColors)!="undefined"){
-                            var color_options = {
+                            var options = {
                                 confettiColors: confetti.options.confettiColors
                             }
-                            jsConfetti.addConfetti(color_options); 
+                                if(typeof(confetti.options.confettiRadius)!="undefined"){
+                                    options.confettiRadius = parseInt(confetti.options.confettiRadius);
+                                }
+                                if(typeof(confetti.options.confettiNumber)!="undefined"){
+                                    options.confettiNumber = parseInt(confetti.options.confettiNumber);
+                                }                                
+                            jsConfetti.addConfetti(options); 
 
                         }
                         if(typeof(confetti.options.emojis)!="undefined"){
                             var emoji_options = {
                                 emojis: confetti.options.emojis
                             }
+                            if(typeof(confetti.options.emojiSize)!="undefined"){
+                                emoji_options.emojiSize = parseInt(confetti.options.emojiSize);
+                            }
+                            if(typeof(confetti.options.confettiNumber)!="undefined"){
+                                emoji_options.confettiNumber = parseInt(confetti.options.confettiNumber);
+                            }                                
                             jsConfetti.addConfetti(emoji_options);                         
                         }
                         
