@@ -2,29 +2,41 @@
 PowerUps by Rob Galvin
 https://www.superpowerups.com
 This will inject a permanent call to action into the course player
-<script src="https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@vlatest/js/player-cta.js" async></script>
+<script src="https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@latest/js/player-cta.js" async></script>
 */
 
 $(document).ready(function () {
     var injected = false;
     var course = null;
+    var is_free_trial = false;
     if(typeof(CoursePlayerV2) !== 'undefined' && typeof(kapow_player_ctas) !== 'undefined') {
         const inject_css = function () {
             var f = document.getElementsByTagName("script")[0];
             var playerbs_css = document.createElement("link");
             playerbs_css.rel = "stylesheet";
             playerbs_css.href =
-              "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@vlatest/css/player-cta.css";
+              "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@latest/css/player-cta.css";
             f.parentNode.insertBefore(playerbs_css, f);
         
 
           };   
           inject_css();     
           function anyMatches(courseId) {
+            var enrollment_ok = true;
             for (let i = 0; i < kapow_player_ctas.length; i++) {
+
               const courseIds = kapow_player_ctas[i].courseid.split(" ");
               if (courseIds.includes(courseId) || courseIds.includes("all")) {
-                return true;
+                if(kapow_player_ctas[i].enrollment=="free" && !is_free_trial){
+                    enrollment_ok=false;
+                }
+                if(kapow_player_ctas[i].enrollment=="full" && is_free_trial){
+                    enrollment_ok=false;
+                }
+                if(enrollment_ok){
+                    return true;               
+                }
+                
               }
             }
             return false;
@@ -32,15 +44,36 @@ $(document).ready(function () {
 
         function findCourseObject(courseId) {
             let matchObject = null;
+            var enrollment_ok = true;
             
+            //check course specific first
             for (let i = 0; i < kapow_player_ctas.length; i++) {
                 let courseIds = kapow_player_ctas[i].courseid.split(" ");
                 if (courseIds.includes(courseId)) {
-                return kapow_player_ctas[i];
+                    if(kapow_player_ctas[i].enrollment=="free" && !is_free_trial){
+                        enrollment_ok=false;
+                    }
+                    if(kapow_player_ctas[i].enrollment=="full" && is_free_trial){
+                        enrollment_ok=false;
+                    }
+                    if(enrollment_ok){                    
+                        return kapow_player_ctas[i];
+                    }
                 }
-            
+            }
+
+            //check for all
+            for (let i = 0; i < kapow_player_ctas.length; i++) {
                 if (kapow_player_ctas[i].courseid === "all") {
-                matchObject = kapow_player_ctas[i];
+                    if(kapow_player_ctas[i].enrollment=="free" && !is_free_trial){
+                        enrollment_ok=false;
+                    }
+                    if(kapow_player_ctas[i].enrollment=="full" && is_free_trial){
+                        enrollment_ok=false;
+                    }
+                    if(enrollment_ok){                    
+                        return kapow_player_ctas[i];
+                    }
                 }
             }
             
@@ -55,7 +88,7 @@ $(document).ready(function () {
 
         function generateButtonHTML(href, buttonText) {
             var cleanedButtonText = buttonText.replace(/\n/g, '').replace(/'/g, '&#39;');
-            var htmlString = '<div style="padding: 16px 0;"><a href="' + href + '" target="_blank" class="brand-color__background brand-color__dynamic-text _button--default--small_142a8m _button--icon-right--small_142a8m" style="width:100%;text-decoration:none;"><div class="_content__container_142a8m" style="width:100%;justify-content: center;"><span>' + cleanedButtonText + '</span><i aria-hidden="true" class="toga-icon toga-icon-arrow-right"></i></div></a></div>';
+            var htmlString = '<div style="padding: 16px 0;"><a href="' + href + '" target="_blank" class="brand-color__background brand-color__dynamic-text _button--default_142a8m  _button--icon-right--small_142a8m" style="width:100%;text-decoration:none;"><div class="_content__container_142a8m" style="width:100%;justify-content: center;"><span>' + cleanedButtonText + '</span><i aria-hidden="true" class="toga-icon toga-icon-arrow-right"></i></div></a></div>';
             return htmlString;
           }
           
@@ -113,6 +146,8 @@ $(document).ready(function () {
       CoursePlayerV2.on('hooks:contentDidChange', function(data) {
           
         course = data.course;
+        is_free_trial = data.enrollment.is_free_trial;
+        
         if(anyMatches(course.id) && !injected ){
             injected= true;
             var match = findCourseObject(course.id);
