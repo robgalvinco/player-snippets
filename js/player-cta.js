@@ -2,6 +2,7 @@
 PowerUps by Rob Galvin
 https://www.superpowerups.com
 This will inject a permanent call to action into the course player
+<script src="https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@vlatest/js/player-cta.js" async></script>
 */
 
 $(document).ready(function () {
@@ -19,29 +20,33 @@ $(document).ready(function () {
 
           };   
           inject_css();     
-        function anyMatches(courseId) {
+          function anyMatches(courseId) {
             for (let i = 0; i < kapow_player_ctas.length; i++) {
-              if (kapow_player_ctas[i].courseid === courseId || kapow_player_ctas[i].courseid === "all") {
+              const courseIds = kapow_player_ctas[i].courseid.split(" ");
+              if (courseIds.includes(courseId) || courseIds.includes("all")) {
                 return true;
               }
             }
             return false;
           }
+
         function findCourseObject(courseId) {
-        let matchObject = null;
-        
-        for (let i = 0; i < kapow_player_ctas.length; i++) {
-            if (kapow_player_ctas[i].courseid === courseId) {
-            return kapow_player_ctas[i];
+            let matchObject = null;
+            
+            for (let i = 0; i < kapow_player_ctas.length; i++) {
+                let courseIds = kapow_player_ctas[i].courseid.split(" ");
+                if (courseIds.includes(courseId)) {
+                return kapow_player_ctas[i];
+                }
+            
+                if (kapow_player_ctas[i].courseid === "all") {
+                matchObject = kapow_player_ctas[i];
+                }
             }
             
-            if (kapow_player_ctas[i].courseid === "all") {
-            matchObject = kapow_player_ctas[i];
-            }
+            return matchObject;
         }
-        
-        return matchObject;
-        }          
+      
 
         function getLocation(placement){
             var location = ".course-progress__inner-container"; //under progress bar
