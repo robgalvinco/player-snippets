@@ -8,7 +8,17 @@ $(document).ready(function () {
     var injected = false;
     var course = null;
     if(typeof(CoursePlayerV2) !== 'undefined' && typeof(kapow_player_ctas) !== 'undefined') {
+        const inject_css = function () {
+            var f = document.getElementsByTagName("script")[0];
+            var playerbs_css = document.createElement("link");
+            playerbs_css.rel = "stylesheet";
+            playerbs_css.href =
+              "https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@vlatest/css/player-cta.css";
+            f.parentNode.insertBefore(playerbs_css, f);
         
+
+          };   
+          inject_css();     
         function anyMatches(courseId) {
             for (let i = 0; i < kapow_player_ctas.length; i++) {
               if (kapow_player_ctas[i].courseid === courseId || kapow_player_ctas[i].courseid === "all") {
