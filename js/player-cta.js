@@ -3,6 +3,7 @@ PowerUps by Rob Galvin
 https://www.superpowerups.com
 This will inject a permanent call to action into the course player
 <script src="https://cdn.jsdelivr.net/gh/robgalvinco/player-snippets@latest/js/player-cta.js" async></script>
+purge tool: https://www.jsdelivr.com/tools/purge
 */
 
 $(document).ready(function () {
@@ -113,7 +114,12 @@ $(document).ready(function () {
             // Inject the HTML after the first child div
             parentDiv.children('div:first-child').after(card_html);            
         }
-        function addHtmlToPage(cta,html){
+        function addHtmlToPage(cta,htmlin){
+            const user_name = Thinkific.current_user.first_name;
+            const html = htmlin.replaceAll("[NAME]", user_name);
+
+            
+            
             if(cta.location=="card"){
                 addAsCard(html,true)
             } 
