@@ -19,7 +19,7 @@ $(document).ready(function () {
     var course = null;
     var is_free_trial = false;
     if(typeof(CoursePlayerV2) !== 'undefined' && typeof(kapow_player_alt_upgrades) !== 'undefined') {
-        function replaceNAME(s}{
+        function replaceNAME(s){
             const user_name = Thinkific.current_user.first_name;
             return s.replaceAll("[NAME]", user_name);
         }
