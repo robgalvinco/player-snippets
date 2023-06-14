@@ -19,7 +19,10 @@ $(document).ready(function () {
     var course = null;
     var is_free_trial = false;
     if(typeof(CoursePlayerV2) !== 'undefined' && typeof(kapow_player_alt_upgrades) !== 'undefined') {
-        
+        function replaceNAME(s}{
+            const user_name = Thinkific.current_user.first_name;
+            return s.replaceAll("[NAME]", user_name);
+        }
         function anyalts(courseId) {
             for (let i = 0; i < kapow_player_alt_upgrades.length; i++) {
               if (kapow_player_alt_upgrades[i].courseid === courseId || kapow_player_alt_upgrades[i].courseid === "all") {
@@ -56,10 +59,10 @@ $(document).ready(function () {
                     //console.log("found alt",alt);
                     if(alt!=null){
                         if(alt.heading!=""){
-                            $("#playerModalTitle").text(alt.heading)
+                            $("#playerModalTitle").text(replaceNAME(alt.heading))
                         }
                         if(alt.subheading!=""){
-                            $(".content-blocked-modals__content-container p").text(alt.subheading)
+                            $(".content-blocked-modals__content-container p").text(replaceNAME(alt.subheading))
                         }   
                         if(alt.btn_page!=""){
                             $(".content-blocked-modals__button-container a").attr('href', alt.btn_page)
@@ -68,7 +71,7 @@ $(document).ready(function () {
                             $(".content-blocked-modals__button-container a").text(alt.btn_text)
                         }
                         if(alt.no_thanks!=""){
-                            $(".content-blocked-modals__button-container button").text(alt.no_thanks)
+                            $(".content-blocked-modals__button-container button").text(replaceNAME(alt.no_thanks))
                         }
 
                     }
