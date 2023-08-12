@@ -117,8 +117,8 @@ $(document).ready(function () {
         function addHtmlToPage(cta,htmlin){
             const user_name = Thinkific.current_user.first_name;
             const full_name = Thinkific.current_user.full_name;
-            var html = htmlin.replaceAll("[NAME]", user_name);
-            html = htmlin.replaceAll("[FULL_NAME]", full_name);
+            const html = htmlin.replaceAll("[NAME]", user_name).replaceAll("[FULL_NAME]", full_name);
+            
 
             
             
