@@ -7,9 +7,15 @@ $(document).ready(function () {
     function scanLesson(){
         $('a[data-lesson-id="'+currentlessondata.lesson.id+'"]').attr("data-auto-scanned","true");
         
-        if(isDownloadLesson()){
+        
+        if(isDownloadLesson() || isPDFLesson()){
+            var lesson_type = "download";
+            if(isPDFLesson()){
+                lesson_type = "PDF";
+                addPDFCopyLink();
+            }
             Swal.fire({
-                title: 'We found a download lesson. Include these?',
+                title: 'We found a '+lesson_type+' lesson. Include this?',
                 input: 'text',
                 inputLabel: 'Tag with categories (seperated by a | symbol)',
                 inputValue: "",
@@ -35,7 +41,13 @@ $(document).ready(function () {
                         
                     }).then((result) => {
                         var keywords = result.value;
-                        getLessonDownloads(categories,keywords);
+                        if(lesson_type == "download"){
+                            getLessonDownloads(categories,keywords);
+                        }
+                        if(lesson_type == "PDF"){
+                            getLessonPDF(categories,keywords);
+                        }
+                        
                     })
                     
                 } else {
@@ -65,6 +77,20 @@ $(document).ready(function () {
         console.log(downloads);   
     }
 
+    function getLessonPDF(categories, keywords){
+        console.log("getting downloads")
+
+        var pdfUrl = $('#content-inner iframe').attr('src');
+        const nameElement = $('.course-player__content-header__title');
+        const name = nameElement.text().trim();
+        const link = pdfUrl;
+        const matchingImage = $('img[alt="' + name + '"]').first();
+        const imageUrl = matchingImage.length ? matchingImage.attr('src') : '';
+              
+        downloads.push({ name, link, imageUrl, categories, keywords });
+
+        console.log(downloads);   
+    }    
     function exportToCSV() {
       
         let csvContent = 'data:text/csv;charset=utf-8,';
@@ -87,6 +113,46 @@ $(document).ready(function () {
     function isDownloadLesson(){
         if(currentlessondata.lesson.default_lesson_type_label=="Download" ){
             console.log("found download lesson")
+            return true         
+        } else {
+            return false
+        }
+    }
+    function addPDFCopyLink() {
+        // Add Copy PDF Link
+        $('.course-player__content-header').prepend('<button class="brand-color__background brand-color__dynamic-text _button--default--small_142a8m" style="margin-right:10px" id="copy-pdf-link"> Copy PDF Link</button>');
+        
+        // Click handler
+        $('#copy-pdf-link').click(function(e) {
+          e.preventDefault();
+          
+          // Get iframe source
+          var pdfUrl = $('#content-inner iframe').attr('src');
+          
+          // Copy to clipboard
+          copyToClipboard(pdfUrl);
+          
+          // Change text 
+          var $link = $(this);
+          $link.text('Copied');
+          setTimeout(function() {
+            $link.text('Copy PDF Link');    
+          }, 3000);
+        });
+      }
+      
+      // Helper function to copy text to clipboard
+      function copyToClipboard(text) {
+        console.log("copying to clipboard:"+text);
+        var $temp = $('<input>');
+        $('body').append($temp);
+        $temp.val(text).select();
+        document.execCommand('copy');
+        $temp.remove();
+      }
+    function isPDFLesson(){
+        if(currentlessondata.lesson.default_lesson_type_label=="PDF" ){
+            console.log("found pdf lesson")
             return true         
         } else {
             return false
@@ -144,7 +210,9 @@ $(document).ready(function () {
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
-                    window.location="https://docs-sitepagetemplates.superpowerups.com/the-collections/resource-library/exporting-resources-from-a-course#step-3-import-the-csv-file-into-google-sheets";
+                    var step2_url = "https://help.superpowerups.com/en/articles/8289452-resource-library-export-tool#h_532449e351";
+                    window.open(step2_url, '_blank');
+                    
                 } 
             })    
         } else {
@@ -221,7 +289,11 @@ $(document).ready(function () {
                         scanLesson();
                     }
                     
-                }          
+                }   
+                $('#copy-pdf-link').remove();
+                if(isPDFLesson()){
+                    addPDFCopyLink(); 
+                }       
             }
 
         });        
